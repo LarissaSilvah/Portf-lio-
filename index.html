@@ -1,1537 +1,485 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Larissa Raiane da Silva | Design Instrucional & Educação Corporativa</title>
-    <meta name="description" content="Portfólio de Design Instrucional e Educação Corporativa por Larissa Raiane da Silva. Soluções educacionais, T&D e experiências de aprendizagem interativas." />
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfólio | Design Instrucional & Educação Corporativa</title>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    :root {
+      --bg-primary: #0f172a;
+      --bg-secondary: #1e293b;
+      --bg-card: #334155;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --accent: #38bdf8;
+      --accent-hover: #0284c7;
+      --border: #475569;
+      --font-sans: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background-color: var(--bg-primary); color: var(--text-main); font-family: var(--font-sans); line-height: 1.6; }
+    container, section { max-width: 1200px; margin: 0 auto; padding: 2rem 1.5rem; }
+
+    /* Header & Nav */
+    header { background-color: var(--bg-secondary); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; }
+    nav { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; padding: 1rem 1.5rem; }
+    .logo { font-weight: 700; font-size: 1.25rem; color: var(--accent); text-decoration: none; }
+    .nav-links { display: flex; gap: 1.5rem; list-style: none; }
+    .nav-links a { color: var(--text-main); text-decoration: none; font-size: 0.95rem; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--accent); }
+
+    /* Hero */
+    .hero { text-align: left; padding: 4rem 1.5rem; border-bottom: 1px solid var(--border); }
+    .hero h1 { font-size: 2.5rem; margin-bottom: 1rem; color: var(--text-main); }
+    .hero p.tagline { font-size: 1.2rem; color: var(--accent); margin-bottom: 1.5rem; font-weight: 500; }
+    .hero p.description { max-width: 800px; color: var(--text-muted); font-size: 1.05rem; }
+
+    /* Titles */
+    h2.section-title { font-size: 1.8rem; margin-bottom: 2rem; color: var(--text-main); border-bottom: 2px solid var(--accent); display: inline-block; padding-bottom: 0.3rem; }
+
+    /* Raciocínio de DI Banner */
+    .di-logic-banner { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 8px; padding: 1.5rem; margin-bottom: 3rem; }
+    .di-logic-banner h3 { font-size: 1.1rem; color: var(--accent); margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 0.05em; }
+    .di-logic-steps { display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem; font-size: 0.85rem; font-weight: 600; }
+    .di-logic-steps span.step { background: var(--bg-card); padding: 0.5rem 0.75rem; border-radius: 4px; border: 1px solid var(--border); }
+    .di-logic-arrow { color: var(--accent); display: flex; align-items: center; }
+
+    /* Processo */
+    .process-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin-bottom: 3rem; }
+    .process-card { background: var(--bg-secondary); border: 1px solid var(--border); padding: 1rem; border-radius: 6px; text-align: center; }
+    .process-card h4 { color: var(--accent); font-size: 1rem; margin-bottom: 0.5rem; }
+    .process-card p { font-size: 0.85rem; color: var(--text-muted); }
+
+    /* Competências & Ferramentas */
+    .skills-wrapper { display: flex; flex-direction: column; gap: 2rem; margin-bottom: 3rem; }
+    .skills-group { background: var(--bg-secondary); border: 1px solid var(--border); padding: 1.5rem; border-radius: 8px; }
+    .skills-group h3 { font-size: 1.2rem; color: var(--accent); margin-bottom: 1rem; border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; }
+    .skills-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .tag { background: var(--bg-card); padding: 0.4rem 0.8rem; border-radius: 4px; font-size: 0.85rem; border: 1px solid var(--border); }
+    .tag.primary { border-color: var(--accent); color: var(--text-main); font-weight: 500; }
+
+    /* Projetos / Estudos de Caso */
+    .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+    .project-card { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; display: flex; flex-direction: column; }
+    .project-body { padding: 1.5rem; flex-grow: 1; display: flex; flex-direction: column; }
+    .project-type { font-size: 0.75rem; text-transform: uppercase; color: var(--accent); font-weight: 700; margin-bottom: 0.5rem; }
+    .project-title { font-size: 1.2rem; margin-bottom: 0.75rem; color: var(--text-main); }
+    .project-desc { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1.5rem; flex-grow: 1; }
+    .project-actions { display: flex; gap: 0.75rem; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; padding: 0.6rem 1rem; font-size: 0.85rem; font-weight: 600; text-decoration: none; border-radius: 4px; cursor: pointer; transition: background 0.2s; }
+    .btn-primary { background: var(--accent); color: #000; border: none; }
+    .btn-primary:hover { background: var(--accent-hover); color: #fff; }
+    .btn-secondary { background: transparent; color: var(--text-main); border: 1px solid var(--border); }
+    .btn-secondary:hover { background: var(--bg-card); }
+
+    /* Modal / Estudo de Caso Aprofundado */
+    .modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); z-index: 1000; overflow-y: auto; padding: 2rem 1rem; }
+    .modal-content { background: var(--bg-primary); max-width: 900px; margin: 0 auto; border: 1px solid var(--border); border-radius: 8px; padding: 2rem; position: relative; }
+    .modal-close { position: absolute; top: 1rem; right: 1rem; background: none; border: none; color: var(--text-muted); font-size: 1.5rem; cursor: pointer; }
+    .modal-close:hover { color: var(--text-main); }
     
-    <!-- Google Fonts & Lucide Icons -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
-      rel="stylesheet"
-    />
-    <script src="https://unpkg.com/lucide@latest"></script>
-
-    <style>
-      /* Reset e Variáveis Globais */
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family:
-          "Inter",
-          -apple-system,
-          BlinkMacSystemFont,
-          "Segoe UI",
-          Roboto,
-          Oxygen,
-          Ubuntu,
-          Cantarell,
-          sans-serif;
-      }
-
-      :root {
-        --bg-primary: #0f172a;
-        --bg-secondary: #1e293b;
-        --bg-card: #1e293b;
-        --border-color: #334155;
-        --accent-color: #38bdf8;
-        --accent-hover: #0284c7;
-        --text-main: #f8fafc;
-        --text-muted: #94a3b8;
-        --shadow-color: rgba(0, 0, 0, 0.3);
-      }
-
-      html {
-        scroll-behavior: smooth;
-      }
-
-      body {
-        background-color: var(--bg-primary);
-        color: var(--text-main);
-        line-height: 1.6;
-        display: flex;
-        flex-direction: column;
-        min-height: 100vh;
-      }
-
-      /* Navegação */
-      header {
-        position: sticky;
-        top: 0;
-        background-color: rgba(15, 23, 42, 0.95);
-        backdrop-filter: blur(8px);
-        z-index: 100;
-        border-bottom: 1px solid var(--border-color);
-      }
-
-      nav {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 1.25rem 2rem;
-        max-width: 1200px;
-        margin: 0 auto;
-        width: 100%;
-      }
-
-      .logo {
-        display: flex;
-        align-items: center;
-        gap: 0.75rem;
-        text-decoration: none;
-      }
-
-      .logo-text {
-        display: flex;
-        flex-direction: column;
-        line-height: 1.2;
-      }
-
-      .logo-title {
-        font-size: 1.25rem;
-        font-weight: 800;
-        color: var(--accent-color);
-      }
-
-      .logo-subtitle {
-        font-size: 0.8rem;
-        font-weight: 500;
-        color: var(--text-muted);
-      }
-
-      .nav-links {
-        display: flex;
-        gap: 1.5rem;
-        list-style: none;
-      }
-
-      .nav-links a {
-        color: var(--text-muted);
-        text-decoration: none;
-        font-weight: 500;
-        font-size: 0.95rem;
-        transition: color 0.2s ease;
-      }
-
-      .nav-links a:hover {
-        color: var(--accent-color);
-      }
-
-      /* Container Principal */
-      .container {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 3rem 1.5rem;
-        width: 100%;
-        flex: 1;
-      }
-
-      /* Seção Hero */
-      .hero {
-        text-align: center;
-        max-width: 900px;
-        margin: 0 auto 5rem auto;
-      }
-
-      .hero-badge {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.5rem;
-        background-color: rgba(56, 189, 248, 0.1);
-        color: var(--accent-color);
-        padding: 0.4rem 1rem;
-        border-radius: 50px;
-        font-size: 0.875rem;
-        font-weight: 600;
-        margin-bottom: 1.5rem;
-        border: 1px solid rgba(56, 189, 248, 0.2);
-      }
-
-      .hero h1 {
-        font-size: 2.5rem;
-        font-weight: 800;
-        line-height: 1.25;
-        margin-bottom: 1.5rem;
-        letter-spacing: -0.02em;
-      }
-
-      .hero h1 span {
-        color: var(--accent-color);
-      }
-
-      .hero-subtitle-text {
-        font-size: 1.1rem;
-        color: var(--text-muted);
-        max-width: 780px;
-        margin: 0 auto 2.5rem auto;
-        line-height: 1.7;
-      }
-
-      .hero-pillars {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        gap: 1rem;
-        margin-top: 2rem;
-      }
-
-      .pillar-card {
-        background-color: var(--bg-secondary);
-        border: 1px solid var(--border-color);
-        padding: 1rem;
-        border-radius: 8px;
-        text-align: center;
-        font-weight: 600;
-        font-size: 0.9rem;
-        color: var(--accent-color);
-      }
-
-      /* Seções Gerais */
-      .section-block {
-        margin-bottom: 5rem;
-      }
-
-      .section-header-center {
-        text-align: center;
-        margin-bottom: 3rem;
-      }
-
-      .section-title {
-        font-size: 2rem;
-        font-weight: 700;
-        margin-bottom: 0.5rem;
-      }
-
-      .section-subtitle {
-        color: var(--text-muted);
-        font-size: 1rem;
-      }
-
-      /* Seção Sobre Mim Estratégica */
-      .about-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 1.5rem;
-      }
-
-      .about-card {
-        background-color: var(--bg-card);
-        border: 1px solid var(--border-color);
-        padding: 1.75rem;
-        border-radius: 12px;
-      }
-
-      .about-card h3 {
-        color: var(--accent-color);
-        font-size: 1.2rem;
-        margin-bottom: 0.75rem;
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-      }
-
-      .about-card p {
-        color: var(--text-muted);
-        font-size: 0.95rem;
-        line-height: 1.6;
-      }
-
-      /* Processo Instrucional (Como Eu Trabalho) */
-      .process-flow {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-        gap: 1.25rem;
-      }
-
-      .process-step {
-        background-color: var(--bg-card);
-        border: 1px solid var(--border-color);
-        border-radius: 12px;
-        padding: 1.5rem;
-        position: relative;
-      }
-
-      .step-number {
-        font-size: 1.5rem;
-        font-weight: 800;
-        color: var(--accent-color);
-        margin-bottom: 0.5rem;
-      }
-
-      .step-title {
-        font-size: 1.1rem;
-        font-weight: 700;
-        margin-bottom: 0.5rem;
-      }
-
-      .step-desc {
-        font-size: 0.875rem;
-        color: var(--text-muted);
-      }
-
-      /* Raciocínio DI Visual Banner */
-      .di-logic-banner {
-        background: linear-gradient(135deg, rgba(30, 41, 59, 1) 0%, rgba(15, 23, 42, 1) 100%);
-        border: 1px solid var(--accent-color);
-        border-radius: 12px;
-        padding: 2rem;
-        text-align: center;
-        margin-bottom: 4rem;
-      }
-
-      .di-logic-banner h3 {
-        color: var(--accent-color);
-        margin-bottom: 1rem;
-        font-size: 1.25rem;
-      }
-
-      .di-logic-steps {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-wrap: wrap;
-        gap: 0.75rem;
-        font-weight: 700;
-        font-size: 0.95rem;
-      }
-
-      .di-logic-arrow {
-        color: var(--accent-color);
-      }
-
-      /* Seção de Projetos / Estudos de Caso */
-      .projects-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 2rem;
-      }
-
-      .card {
-        background-color: var(--bg-card);
-        border: 1px solid var(--border-color);
-        border-radius: 16px;
-        overflow: hidden;
-        display: flex;
-        flex-direction: column;
-        transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
-      }
-
-      .card:hover {
-        transform: translateY(-6px);
-        border-color: var(--accent-color);
-        box-shadow: 0 10px 25px -5px rgba(56, 189, 248, 0.15);
-      }
-
-      .card-preview {
-        width: 100%;
-        height: 190px;
-        background-color: #0f172a;
-        position: relative;
-        overflow: hidden;
-      }
-
-      .card-projeto-imagem {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        object-position: top center;
-      }
-
-      .card-badge-type {
-        position: absolute;
-        top: 0.75rem;
-        left: 0.75rem;
-        background-color: rgba(15, 23, 42, 0.85);
-        border: 1px solid var(--border-color);
-        color: var(--accent-color);
-        font-size: 0.75rem;
-        padding: 0.25rem 0.6rem;
-        border-radius: 6px;
-        font-weight: 600;
-        backdrop-filter: blur(4px);
-      }
-
-      .card-body {
-        padding: 1.5rem;
-        display: flex;
-        flex-direction: column;
-        flex: 1;
-      }
-
-      .card-title {
-        font-size: 1.2rem;
-        font-weight: 700;
-        margin-bottom: 0.75rem;
-        color: var(--text-main);
-      }
-
-      .card-meta-block {
-        background-color: rgba(15, 23, 42, 0.5);
-        border-left: 3px solid var(--accent-color);
-        padding: 0.6rem 0.8rem;
-        margin-bottom: 1rem;
-        font-size: 0.85rem;
-      }
-
-      .card-meta-block strong {
-        color: var(--text-main);
-      }
-
-      .card-meta-block span {
-        color: var(--text-muted);
-        display: block;
-      }
-
-      .card-tags {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.4rem;
-        margin-bottom: 1.5rem;
-        margin-top: auto;
-      }
-
-      .tag {
-        font-size: 0.75rem;
-        background-color: rgba(51, 65, 85, 0.5);
-        color: #cbd5e1;
-        padding: 0.25rem 0.5rem;
-        border-radius: 4px;
-        font-weight: 500;
-      }
-
-      /* Botões */
-      .btn-group {
-        display: flex;
-        gap: 0.75rem;
-        flex-direction: column;
-      }
-
-      .btn {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        gap: 0.5rem;
-        width: 100%;
-        padding: 0.75rem 1rem;
-        border-radius: 8px;
-        font-size: 0.875rem;
-        font-weight: 600;
-        text-decoration: none;
-        cursor: pointer;
-        transition: all 0.2s ease;
-        border: none;
-      }
-
-      .btn-primary {
-        background-color: var(--accent-color);
-        color: #0f172a;
-      }
-
-      .btn-primary:hover {
-        background-color: var(--accent-hover);
-        color: #ffffff;
-      }
-
-      .btn-outline {
-        background-color: transparent;
-        border: 1px solid var(--border-color);
-        color: var(--text-main);
-      }
-
-      .btn-outline:hover {
-        border-color: var(--accent-color);
-        color: var(--accent-color);
-        background-color: rgba(56, 189, 248, 0.05);
-      }
-
-      /* Seção de Metodologias & Estratégias */
-      .methodologies-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-        gap: 1.25rem;
-      }
-
-      .methodology-card {
-        background-color: var(--bg-card);
-        border: 1px solid var(--border-color);
-        border-radius: 10px;
-        padding: 1.25rem;
-      }
-
-      .methodology-card h4 {
-        color: var(--accent-color);
-        font-size: 1rem;
-        margin-bottom: 0.5rem;
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-      }
-
-      .methodology-card p {
-        font-size: 0.875rem;
-        color: var(--text-muted);
-      }
-
-      /* Seção Competências */
-      .skills-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 1.5rem;
-      }
-
-      .skill-category {
-        background-color: var(--bg-card);
-        border: 1px solid var(--border-color);
-        border-radius: 12px;
-        padding: 1.5rem;
-      }
-
-      .skill-category h3 {
-        font-size: 1.1rem;
-        color: var(--accent-color);
-        margin-bottom: 1rem;
-        border-bottom: 1px solid var(--border-color);
-        padding-bottom: 0.5rem;
-      }
-
-      .skill-list {
-        list-style: none;
-      }
-
-      .skill-list li {
-        font-size: 0.9rem;
-        color: var(--text-muted);
-        margin-bottom: 0.5rem;
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-      }
-
-      .skill-list li::before {
-        content: "•";
-        color: var(--accent-color);
-        font-weight: bold;
-      }
-
-      /* Seção CTA e Contato */
-      .cta-section {
-        background-color: var(--bg-secondary);
-        border: 1px solid var(--border-color);
-        border-radius: 16px;
-        padding: 3rem 2rem;
-        text-align: center;
-        max-width: 900px;
-        margin: 0 auto;
-      }
-
-      .cta-section h2 {
-        font-size: 1.8rem;
-        margin-bottom: 1rem;
-      }
-
-      .cta-section p {
-        color: var(--text-muted);
-        max-width: 600px;
-        margin: 0 auto 2rem auto;
-      }
-
-      .cta-buttons {
-        display: flex;
-        justify-content: center;
-        gap: 1rem;
-        flex-wrap: wrap;
-      }
-
-      .cta-btn {
-        width: auto;
-        min-width: 200px;
-      }
-
-      /* Rodapé */
-      footer {
-        border-top: 1px solid var(--border-color);
-        padding: 3rem 1.5rem;
-        text-align: center;
-        margin-top: 4rem;
-        background-color: #0b1120;
-      }
-
-      .social-links {
-        display: flex;
-        justify-content: center;
-        gap: 1.5rem;
-        margin-bottom: 1.5rem;
-      }
-
-      .social-icon {
-        color: var(--text-muted);
-        font-size: 1.25rem;
-        transition: color 0.2s ease;
-        text-decoration: none;
-      }
-
-      .social-icon:hover {
-        color: var(--accent-color);
-      }
-
-      footer p {
-        color: var(--text-muted);
-        font-size: 0.875rem;
-      }
-
-      /* Modal de Estudo de Caso (Visão Detalhada) */
-      .modal-overlay {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(15, 23, 42, 0.92);
-        backdrop-filter: blur(10px);
-        z-index: 1000;
-        display: none;
-        justify-content: center;
-        align-items: center;
-        padding: 1.5rem;
-        overflow-y: auto;
-      }
-
-      .modal-overlay.active {
-        display: flex;
-      }
-
-      .modal-container {
-        background-color: var(--bg-primary);
-        border: 1px solid var(--border-color);
-        border-radius: 16px;
-        max-width: 960px;
-        width: 100%;
-        max-height: 90vh;
-        overflow-y: auto;
-        padding: 2.5rem;
-        position: relative;
-        box-shadow: 0 20px 30px -5px rgba(0, 0, 0, 0.7);
-      }
-
-      .modal-close {
-        position: absolute;
-        top: 1.25rem;
-        right: 1.25rem;
-        background: transparent;
-        border: none;
-        color: var(--text-muted);
-        cursor: pointer;
-        transition: color 0.2s;
-      }
-
-      .modal-close:hover {
-        color: var(--accent-color);
-      }
-
-      .case-header {
-        border-bottom: 1px solid var(--border-color);
-        padding-bottom: 1.5rem;
-        margin-bottom: 2rem;
-      }
-
-      .case-tag-fictional {
-        display: inline-block;
-        background-color: rgba(56, 189, 248, 0.1);
-        color: var(--accent-color);
-        font-size: 0.75rem;
-        font-weight: 700;
-        padding: 0.25rem 0.75rem;
-        border-radius: 4px;
-        margin-bottom: 0.75rem;
-        text-transform: uppercase;
-        border: 1px solid rgba(56, 189, 248, 0.3);
-      }
-
-      .case-title {
-        font-size: 2rem;
-        font-weight: 800;
-        margin-bottom: 1rem;
-        line-height: 1.25;
-      }
-
-      .case-meta-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        gap: 1rem;
-        background-color: var(--bg-secondary);
-        padding: 1.25rem;
-        border-radius: 8px;
-        margin-bottom: 2rem;
-        border: 1px solid var(--border-color);
-      }
-
-      .case-meta-item strong {
-        display: block;
-        font-size: 0.75rem;
-        color: var(--accent-color);
-        text-transform: uppercase;
-        letter-spacing: 0.05em;
-        margin-bottom: 0.2rem;
-      }
-
-      .case-meta-item span {
-        font-size: 0.9rem;
-        color: var(--text-main);
-        font-weight: 500;
-      }
-
-      .case-section {
-        margin-bottom: 2.25rem;
-        background-color: rgba(30, 41, 59, 0.4);
-        padding: 1.5rem;
-        border-radius: 10px;
-        border: 1px solid rgba(51, 65, 85, 0.5);
-      }
-
-      .case-section h3 {
-        font-size: 1.2rem;
-        color: var(--accent-color);
-        margin-bottom: 1rem;
-        display: flex;
-        align-items: center;
-        gap: 0.6rem;
-      }
-
-      .case-section p {
-        color: #cbd5e1;
-        font-size: 0.95rem;
-        line-height: 1.7;
-        margin-bottom: 0.75rem;
-      }
-
-      .case-section p:last-child {
-        margin-bottom: 0;
-      }
-
-      .case-section ul, .case-section ol {
-        color: #cbd5e1;
-        font-size: 0.95rem;
-        line-height: 1.7;
-        padding-left: 1.5rem;
-      }
-
-      .case-section li {
-        margin-bottom: 0.5rem;
-      }
-
-      .storyboard-box {
-        background-color: var(--bg-primary);
-        border: 1px solid var(--border-color);
-        border-radius: 8px;
-        padding: 1.25rem;
-        margin-top: 1rem;
-        font-size: 0.9rem;
-      }
-
-      .storyboard-row {
-        display: grid;
-        grid-template-columns: 140px 1fr;
-        gap: 0.75rem;
-        margin-bottom: 0.75rem;
-        padding-bottom: 0.5rem;
-        border-bottom: 1px dashed var(--border-color);
-      }
-
-      .storyboard-row:last-child {
-        margin-bottom: 0;
-        padding-bottom: 0;
-        border-bottom: none;
-      }
-
-      .storyboard-label {
-        font-weight: bold;
-        color: var(--accent-color);
-      }
-
-      .back-to-projects-btn {
-        margin-bottom: 1.5rem;
-        display: inline-flex;
-        align-items: center;
-        gap: 0.5rem;
-        color: var(--accent-color);
-        background: transparent;
-        border: none;
-        cursor: pointer;
-        font-weight: 600;
-        font-size: 0.9rem;
-      }
-
-      .back-to-projects-btn:hover {
-        text-decoration: underline;
-      }
-
-      /* Responsividade */
-      @media (max-width: 768px) {
-        nav {
-          flex-direction: column;
-          gap: 1rem;
-        }
-
-        .hero h1 {
-          font-size: 1.85rem;
-        }
-
-        .btn-group {
-          flex-direction: column;
-        }
-
-        .modal-container {
-          padding: 1.5rem;
-        }
-
-        .storyboard-row {
-          grid-template-columns: 1fr;
-          gap: 0.25rem;
-        }
-
-        .di-logic-steps {
-          flex-direction: column;
-        }
-
-        .di-logic-arrow {
-          transform: rotate(90deg);
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <!-- Barra de Navegação Superior -->
-    <header>
-      <nav aria-label="Navegação principal">
-        <a href="#" class="logo">
-          <i data-lucide="award"></i>
-          <div class="logo-text">
-            <span class="logo-title">Larissa Raiane</span>
-            <span class="logo-subtitle">Design Instrucional & Educação Corporativa</span>
-          </div>
-        </a>
-        
-        <ul class="nav-links">
-          <li><a href="#sobre">Sobre</a></li>
-          <li><a href="#processo">Processo DI</a></li>
-          <li><a href="#projetos">Estudos de Caso</a></li>
-          <li><a href="#metodologias">Metodologias</a></li>
-          <li><a href="#competencias">Competências</a></li>
-          <li><a href="#contato">Contato</a></li>
-        </ul>
-      </nav>
-    </header>
-
-    <main class="container" id="main-content">
-      <!-- Seção Hero / Apresentação de Entrada -->
-      <section class="hero" id="hero">
-        <div class="hero-badge">
-          <i data-lucide="sparkles" style="width: 16px; height: 16px"></i>
-          <span>Transformando necessidades empresariais em soluções educacionais.</span>
-        </div>
-        <h1>
-          Design Instrucional & Educação Corporativa:
-          <br /><span>Conectando pessoas, e aprendizado.</span>
-        </h1>
-
-        <p class="hero-subtitle-text">
-          Profissional especializada no desenho, roteirização e desenvolvimento de experiências de aprendizagem corporativa. Atuo no alinhamento entre metodologias pedagógicas, necessidades de T&D e tecnologias digitais para gerar impacto real no desempenho de equipes.
-        </p>
-
-        <div class="hero-pillars">
-          <div class="pillar-card">DESIGN INSTRUCIONAL</div>
-          <div class="pillar-card">EDUCAÇÃO CORPORATIVA</div>
-          <div class="pillar-card">T&D / RH ESTRATÉGICO</div>
-          <div class="pillar-card">TECNOLOGIA EDUCACIONAL</div>
-        </div>
-      </section>
-
-      <!-- Seção 1: Raciocínio de DI Estruturado -->
-<div class="di-logic-banner">
-  <h3>Alinhamento Instrucional Estratégico</h3>
-  <div class="di-logic-steps">
-    <span>PROBLEMA DE APRENDIZAGEM</span>
-    <span class="di-logic-arrow"><i data-lucide="arrow-right"></i></span>
-    <span>OBJETIVOS MENSURÁVEIS</span>
-    <span class="di-logic-arrow"><i data-lucide="arrow-right"></i></span>
-    <span>ESTRATÉGIA INSTRUCIONAL</span>
-    <span class="di-logic-arrow"><i data-lucide="arrow-right"></i></span>
-    <span>EXPERIÊNCIA INTERATIVA</span>
-    <span class="di-logic-arrow"><i data-lucide="arrow-right"></i></span>
-    <span>AVALIAÇÃO DE RESULTADOS</span>
-  </div>
-</div>
-      
-
-      <!-- Seção 2: Sobre Mim Estratégico -->
-      <section class="section-block" id="sobre">
-        <div class="section-header-center">
-          <h2 class="section-title">Sobre Mim</h2>
-          <p class="section-subtitle">A união entre fundamentos pedagógicos, visão de negócios e capacidade tecnológica.</p>
-        </div>
-
-        <div class="about-grid">
-          <article class="about-card">
-            <h3><i data-lucide="book-open"></i> Base Pedagogia</h3>
-            <p>Graduação em Pedagogia. Domínio sólido de teorias da aprendizagem, andragogia, processos cognitivos, design de avaliação e facilitação do ensino focado no aprendiz adulto.</p>
-          </article>
-
-          <article class="about-card">
-            <h3><i data-lucide="briefcase"></i> Visão de T&D e RH</h3>
-            <p>Formação Técnica em RH e capacitação em Educação Corporativa. Visão sistêmica para diagnosticar lacunas de desempenho e alinhar treinamentos às metas organizacionais e cultura da empresa.</p>
-          </article>
-
-          <article class="about-card">
-            <h3><i data-lucide="laptop"></i> Tecnologia Educacional</h3>
-            <p>Desenvolvimento prático de soluções digitais interativas utilizando HTML5, CSS3, JavaScript e ferramentas de autoria, criando simulações e conteúdos responsivos sob medida.</p>
-          </article>
-        </div>
-      </section>
-
-      <!-- Seção 3: Meu Processo de Design Instrucional (Como eu trabalho) -->
-      <section class="section-block" id="processo">
-        <div class="section-header-center">
-          <h2 class="section-title">Meu Processo de Design Instrucional</h2>
-          <p class="section-subtitle">Metodologia estruturada para garantir eficácia e rigor pedagógico do diagnóstico ao resultado.</p>
-        </div>
-
-        <div class="process-flow">
-          <div class="process-step">
-            <div class="step-number">01</div>
-            <div class="step-title">Diagnóstico</div>
-            <div class="step-desc">Identificação do problema de negócio e levantamento de necessidades reais de treinamento (LNT).</div>
-          </div>
-
-          <div class="process-step">
-            <div class="step-number">02</div>
-            <div class="step-title">Análise do Público</div>
-            <div class="step-desc">Mapeamento do perfil dos colaboradores, contexto de trabalho, rotina e pré-requisitos cognitivos.</div>
-          </div>
-
-          <div class="process-step">
-            <div class="step-number">03</div>
-            <div class="step-title">Objetivos de Aprendizagem</div>
-            <div class="step-desc">Definição de metas claras e mensuráveis com base na Taxonomia de Bloom (verbos observáveis).</div>
-          </div>
-
-          <div class="process-step">
-            <div class="step-number">04</div>
-            <div class="step-title">Estratégia Instrucional</div>
-            <div class="step-desc">Escolha da abordagem ideal (simulação, microlearning, aprendizagem baseada em problemas, etc.).</div>
-          </div>
-
-          <div class="process-step">
-            <div class="step-number">05</div>
-            <div class="step-title">Roteirização & Storyboard</div>
-            <div class="step-desc">Planejamento detalhado de telas, navegação, copys educacionais, interações e feedbacks.</div>
-          </div>
-
-          <div class="process-step">
-            <div class="step-number">06</div>
-            <div class="step-title">Desenvolvimento</div>
-            <div class="step-desc">Construção técnica da solução interativa (HTML/CSS/JS, multimídia ou plataformas digitais).</div>
-          </div>
-
-          <div class="process-step">
-            <div class="step-number">07</div>
-            <div class="step-title">Avaliação & Métricas</div>
-            <div class="step-desc">Elaboração de testes formativos/somativos e planejamento dos indicadores de impacto esperado.</div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Seção 4: Estudos de Caso de Design Instrucional (Projetos) -->
-      <section class="section-block" id="projetos">
-        <div class="section-header-center">
-          <h2 class="section-title">Estudos de Caso de Design Instrucional</h2>
-          <p class="section-subtitle">Projetos conceituais desenvolvidos com foco em desafios reais do mercado corporativo.</p>
-        </div>
-
-        <div class="projects-grid">
-          <!-- PROJETO 1 -->
-          <article class="card">
-            <div class="card-preview">
-              <span class="card-badge-type">Simulação & Compliance</span>
-              <img src="img.jpeg" alt="Simulador de Capacitação em LGPD e Cibersegurança" class="card-projeto-imagem" />
-            </div>
-            <div class="card-body">
-              <h3 class="card-title">LGPD & Cibersegurança Corporativa</h3>
-              <div class="card-meta-block">
-                <strong>Problema:</strong> <span>Inconformidade com normas LGPD e vulnerabilidade humana a phishing e ransomware.</span>
-              </div>
-              <div class="card-tags">
-                <span class="tag">Simulação de Crise</span>
-                <span class="tag">Compliance</span>
-                <span class="tag">HTML/JS</span>
-              </div>
-              <div class="btn-group">
-                <button onclick="openCaseModal('case-1')" class="btn btn-primary">
-                  <i data-lucide="file-text" style="width: 16px; height: 16px"></i>
-                  Ver Estudo de Caso
-                </button>
-                <a href="https://larissasilvah.github.io/TreinamentoCapacita-o-em-Prote-o-de-Dados-LGPD-l-Ciberseguran-a/" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
-                  <i data-lucide="external-link" style="width: 16px; height: 16px"></i>
-                  Executar Treinamento
-                </a>
-              </div>
-            </div>
-          </article>
-
-          <!-- PROJETO 2 -->
-          <article class="card">
-            <div class="card-preview">
-              <span class="card-badge-type">Branching Scenario</span>
-              <img src="immg.jpeg" alt="Plataforma de Atendimento B2B e Gestão de Contas" class="card-projeto-imagem" />
-            </div>
-            <div class="card-body">
-              <h3 class="card-title">Atendimento B2B & Gestão de Contas</h3>
-              <div class="card-meta-block">
-                <strong>Problema:</strong> <span>Dificuldade no mapeamento de decisores executivos e alto índice de churn em contas B2B.</span>
-              </div>
-              <div class="card-tags">
-                <span class="tag">Cenários Ramificados</span>
-                <span class="tag">Vendas B2B</span>
-                <span class="tag">Gestão de Crise</span>
-              </div>
-              <div class="btn-group">
-                <button onclick="openCaseModal('case-2')" class="btn btn-primary">
-                  <i data-lucide="file-text" style="width: 16px; height: 16px"></i>
-                  Ver Estudo de Caso
-                </button>
-                <a href="https://larissasilvah.github.io/atendimento-ao-cliente./" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
-                  <i data-lucide="external-link" style="width: 16px; height: 16px"></i>
-                  Executar Treinamento
-                </a>
-              </div>
-            </div>
-          </article>
-
-          <!-- PROJETO 3 -->
-          <article class="card">
-            <div class="card-preview">
-              <span class="card-badge-type">Guia Interativo / Microlearning</span>
-              <img src="immmg.jpeg" alt="Guia de Comunicação e Feedback no Trabalho Remoto" class="card-projeto-imagem" />
-            </div>
-            <div class="card-body">
-              <h3 class="card-title">Comunicação & Feedback Remoto</h3>
-              <div class="card-meta-block">
-                <strong>Problema:</strong> <span>Ruídos em ferramentas assíncronas e feedbacks ineficazes gerando desalinhamento em times remotos.</span>
-              </div>
-              <div class="card-tags">
-                <span class="tag">Guia Prático</span>
-                <span class="tag">Comunicação Assíncrona</span>
-                <span class="tag">Canva</span>
-              </div>
-              <div class="btn-group">
-                <button onclick="openCaseModal('case-3')" class="btn btn-primary">
-                  <i data-lucide="file-text" style="width: 16px; height: 16px"></i>
-                  Ver Estudo de Caso
-                </button>
-                <a href="https://canva.link/9dwqqefz0msisks" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
-                  <i data-lucide="external-link" style="width: 16px; height: 16px"></i>
-                  Acessar Guia Interativo
-                </a>
-              </div>
-            </div>
-            </article>
-            <!-- PROJETO 4 -->
-          <article class="card">
-            <div class="card-preview">
-              <span class="card-badge-type">Prática Guiada / SVG</span>
-              <img src="immmm.jpeg" alt="Treinamento Interativo de Seleção de EPIs" class="card-projeto-imagem" />
-            </div>
-            <div class="card-body">
-              <h3 class="card-title">Treinamento Interativo de EPIs</h3>
-              <div class="card-meta-block">
-                <strong>Problema:</strong> <span>Erros recorrentes na identificação e inspeção de Equipamentos de Proteção Individual em operação.</span>
-              </div>
-              <div class="card-tags">
-                <span class="tag">Prática Visual</span>
-                <span class="tag">Segurança do Trabalho</span>
-                <span class="tag">SVG Interativo</span>
-              </div>
-              <div class="btn-group">
-                <button onclick="openCaseModal('case-4')" class="btn btn-primary">
-                  <i data-lucide="file-text" style="width: 16px; height: 16px"></i>
-                  Ver Estudo de Caso
-                </button>
-                <a href="https://larissasilvah.github.io/Treinamento/" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
-                  <i data-lucide="external-link" style="width: 16px; height: 16px"></i>
-                  Executar Treinamento
-                </a>
-              </div>
-            </div>
-          </article>
-        </div>
-      </section>
-
-      <!-- Seção 5: Metodologias & Estratégias Instrucionais -->
-      <section class="section-block" id="metodologias">
-        <div class="section-header-center">
-          <h2 class="section-title">Estratégias Instrucionais Aplicadas</h2>
-          <p class="section-subtitle">Seleção intencional de metodologias alinhadas aos objetivos cognitivos e comportamentais.</p>
-        </div>
-
-        <div class="methodologies-grid">
-          <div class="methodology-card">
-            <h4><i data-lucide="compass"></i> Aprendizagem Baseada em Cenários</h4>
-            <p>Coloca o aprendiz diante de decisões do mundo real, permitindo vivenciar consequências em um ambiente seguro.</p>
-          </div>
-
-          <div class="methodology-card">
-            <h4><i data-lucide="shield-alert"></i> Simulação de Crise</h4>
-            <p>Engaja os participantes ao recriar momentos de alta pressão (ex: ataques de cibercrime) para treinar protocolos.</p>
-          </div>
-
-          <div class="methodology-card">
-            <h4><i data-lucide="layers"></i> Microlearning</h4>
-            <p>Estrutura o conteúdo em pílulas focadas e objetivas para rápida assimilação e aplicação no fluxo de trabalho.</p>
-          </div>
-
-          <div class="methodology-card">
-            <h4><i data-lucide="check-circle"></i> Feedback Imediato</h4>
-            <p>Fornece orientações corretivas e explicativas logo após cada resposta, consolidando o aprendizado formativo.</p>
-          </div>
-
-          <div class="methodology-card">
-            <h4><i data-lucide="target"></i> Gamificação Estrutural</h4>
-            <p>Uso de mecânicas de pontuação, progresso e cenários para impulsionar a motivação intrínseca do colaborador.</p>
-          </div>
-
-          <div class="methodology-card">
-            <h4><i data-lucide="mouse-pointer"></i> Prática Guiada Interativa</h4>
-            <p>Exercícios visuais hands-on (como inspeção de EPIs) para validar habilidades práticas antes da execução real.</p>
-          </div>
-        </div>
-      </section>
-
-      <!-- Seção 6: Matriz de Competências -->
-      <section class="section-block" id="competencias">
-        <div class="section-header-center">
-          <h2 class="section-title">Matriz de Competências</h2>
-          <p class="section-subtitle">Habilidades técnicas e conceituais organizadas para atuação estratégica em Educação Corporativa.</p>
-        </div>
-
-        <div class="skills-grid">
-          <div class="skill-category">
-            <h3>Design Instrucional</h3>
-            <ul class="skill-list">
-              <li>Levantamento de Necessidades (LNT)</li>
-              <li>Taxonomia de Bloom & Objetivos</li>
-              <li>Roteirização & Storyboarding</li>
-              <li>Design de Avaliação da Aprendizagem</li>
-              <li>Design de Experiência do Aprendiz (LX)</li>
-              <li>Andragogia e Aprendizagem de Adultos</li>
-            </ul>
-          </div>
-
-          <div class="skill-category">
-            <h3>T&D & Educação Corporativa</h3>
-            <ul class="skill-list">
-              <li>Gestão de Processos de Aprendizagem</li>
-              <li>Mapeamento de Competências</li>
-              <li>Desenvolvimento de Pessoas & RH</li>
-              <li>Comunicação e Engajamento</li>
-              <li>Treinamentos de Compliance & Operacionais</li>
-              <li>Alinhamento com Indicadores de Negócio</li>
-            </ul>
-          </div>
-
-          <div class="skill-category">
-            <h3>Tecnologia Educacional</h3>
-            <ul class="skill-list">
-              <li>HTML5 e Semântica Web</li>
-              <li>CSS3 & Layouts Responsivos</li>
-              <li>JavaScript para Interatividade Lógica</li>
-              <li>Manipulação de SVG Educacional</li>
-              <li>Design de Interfaces Interativas (UI/UX)</li>
-              <li>Recursos Digitais Multimídia</li>
-            </ul>
-          </div>
-
-          <div class="skill-category">
-            <h3>Ferramentas & Recursos</h3>
-            <ul class="skill-list">
-              <li>Canva (Apresentações e Guias)</li>
-              <li>Editores de Código (VS Code)</li>
-              <li>Plataformas LMS e Web Apps</li>
-              <li>GitHub / GitHub Pages</li>
-              <li>Ferramentas de Diagramação</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      <!-- Seção 7: Chamada para Ação / Contato Profissional -->
-      <section class="cta-section" id="contato">
-        <h2>Vamos transformar conhecimento em experiências de aprendizagem?</h2>
-        <p>Estou disponível para oportunidades como Designer Instrucional, Analista de T&D e especialista em Educação Corporativa.</p>
-        
-        <div class="cta-buttons">
-          <a href="mailto:larissarayane1919@gmail.com" class="btn btn-primary cta-btn">
-            <i data-lucide="mail"></i> Enviar E-mail
-          </a>
-          <a href="tel:+558181683256" class="btn btn-outline cta-btn">
-            <i data-lucide="phone"></i> Telefone / WhatsApp
-          </a>
-        </div>
-      </section>
-    </main>
-
-    <!-- Rodapé Oficial -->
-    <footer>
-      <div class="social-links">
-        <a href="https://github.com/seu-usuario" target="_blank" rel="noopener noreferrer" class="social-icon" title="GitHub" aria-label="GitHub">
-          <i data-lucide="github"></i>
-        </a>
-        <a href="tel:+558181683256" class="social-icon" title="Telefone" aria-label="Telefone">
-          <i data-lucide="phone"></i>
-        </a>
-        <a href="mailto:larissarayane1919@gmail.com" class="social-icon" title="E-mail" aria-label="Enviar e-mail">
-          <i data-lucide="mail"></i>
-        </a>
-      </div>
-      <p>© 2026 - Desenvolvido por Larissa Raiane da Silva. Portfólio de Design Instrucional.</p>
-    </footer>
-
-    <!-- MODAL - ESTUDO DE CASO COMPLETO -->
-    <div class="modal-overlay" id="caseModal">
-      <div class="modal-container">
-        <button class="modal-close" onclick="closeCaseModal()"><i data-lucide="x" style="width: 28px; height: 28px;"></i></button>
-        <button class="back-to-projects-btn" onclick="closeCaseModal()"><i data-lucide="arrow-left"></i> Voltar aos projetos</button>
-        
-        <div id="modalContent">
-          <!-- O conteúdo dinâmico do estudo de caso é injetado via JS -->
-        </div>
+    .case-header { border-bottom: 1px solid var(--border); padding-bottom: 1.5rem; margin-bottom: 1.5rem; }
+    .case-badge { display: inline-block; background: var(--bg-card); border: 1px solid var(--border); font-size: 0.75rem; padding: 0.25rem 0.5rem; border-radius: 4px; color: var(--text-muted); margin-top: 0.5rem; }
+    .case-section { margin-bottom: 2rem; }
+    .case-section h3 { font-size: 1.1rem; color: var(--accent); margin-bottom: 0.5rem; border-left: 3px solid var(--accent); padding-left: 0.5rem; }
+    .case-section p, .case-section ul { font-size: 0.95rem; color: var(--text-muted); }
+    .case-section ul { list-style-position: inside; }
+
+    footer { text-align: center; padding: 2rem; border-top: 1px solid var(--border); color: var(--text-muted); font-size: 0.85rem; margin-top: 3rem; }
+
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2rem; }
+      .di-logic-steps { flex-direction: column; align-items: flex-start; }
+      .di-logic-arrow { transform: rotate(90deg); margin: 0.25rem 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <nav>
+      <a href="#" class="logo">Design Instrucional</a>
+      <ul class="nav-links">
+        <li><a href="#apresentacao">Apresentação</a></li>
+        <li><a href="#processo">Processo</a></li>
+        <li><a href="#competencias">Competências</a></li>
+        <li><a href="#projetos">Estudos de Caso</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section id="apresentacao" class="hero">
+    <p class="tagline">Profissional com formação em Pedagogia e foco em Design Instrucional, T&D e Educação Corporativa.</p>
+    <h1>Experiências de Aprendizagem Centradas na Solução de Problemas</h1>
+    <p class="description">
+      Atuo no alinhamento entre metodologias pedagógicas, necessidades de negócio e tecnologia educacional. Desenvolvo estratégias de treinamento focadas na aplicação prática, utilizando recursos digitais para potencializar o engajamento e a retenção de conhecimento.
+    </p>
+  </section>
+
+  <section id="processo">
+    <h2 class="section-title">Meu Processo de Design Instrucional</h2>
+    
+    <div class="di-logic-banner">
+      <h3>Alinhamento Estratégico</h3>
+      <div class="di-logic-steps">
+        <span class="step">PROBLEMA DE NEGÓCIO</span>
+        <span class="di-logic-arrow"><i data-lucide="arrow-right"></i></span>
+        <span class="step">NECESSIDADE DE APRENDIZAGEM</span>
+        <span class="di-logic-arrow"><i data-lucide="arrow-right"></i></span>
+        <span class="step">OBJETIVOS MENSURÁVEIS</span>
+        <span class="di-logic-arrow"><i data-lucide="arrow-right"></i></span>
+        <span class="step">SOLUÇÃO INSTRUCIONAL</span>
+        <span class="di-logic-arrow"><i data-lucide="arrow-right"></i></span>
+        <span class="step">AVALIAÇÃO & RESULTADOS</span>
       </div>
     </div>
 
-    <!-- Script com os Dados do Estudo de Caso Aprofundados e Controle de Modais -->
-    <script>
-      lucide.createIcons();
+    <div class="process-grid">
+      <div class="process-card">
+        <h4>1. Diagnóstico</h4>
+        <p>Levantamento de necessidades, lacunas e contextos operacionais.</p>
+      </div>
+      <div class="process-card">
+        <h4>2. Público</h4>
+        <p>Análise de perfil, rotina, conhecimentos prévios e barreiras.</p>
+      </div>
+      <div class="process-card">
+        <h4>3. Objetivos</h4>
+        <p>Definição de metas de aprendizagem mensuráveis e observáveis.</p>
+      </div>
+      <div class="process-card">
+        <h4>4. Estratégia</h4>
+        <p>Escolha da abordagem instrucional e formatos adequados.</p>
+      </div>
+      <div class="process-card">
+        <h4>5. Storyboard</h4>
+        <p>Estruturação detalhada das telas, fluxos e interações.</p>
+      </div>
+      <div class="process-card">
+        <h4>6. Desenvolvimento</h4>
+        <p>Construção e implementação técnica da solução digital.</p>
+      </div>
+      <div class="process-card">
+        <h4>7. Avaliação</h4>
+        <p>Mensuração de resultados e validação do aprendizado.</p>
+      </div>
+    </div>
+  </section>
 
-      const caseData = {
-        'case-1': {
-          title: 'Capacitação em Proteção de Dados (LGPD) & Cibersegurança Corporativa',
-          badge: 'Projeto Conceitual / Case Fictício Estruturado',
-          solutionType: 'Simulador Interativo Web de Alta Fidelidade (HTML/CSS/JS)',
-          targetAudience: 'Colaboradores administrativos, operacionais e gestores de todas as áreas',
-          area: 'Compliance, Segurança da Informação & T&D Corporativo',
-          format: 'E-learning Interativo / Simulação de Crise em Tempo Real',
-          tools: 'HTML5 Semântico, CSS3 Flexbox/Grid, JavaScript ES6+, Lucide Icons',
-          
-          context: 'Uma empresa do setor corporativo com mais de 1.200 colaboradores enfrentava constantes riscos de auditoria devido à entrada em vigor das penalidades da LGPD. Além disso, relatórios do time de Segurança da Informação apontavam um crescimento alarmante no número de tentativas de engenharia social e spear-phishing direcionados aos setores financeiro e de recursos humanos.',
-          
-          problem: 'Os treinamentos tradicionais em formato de vídeo estático ou slides em PDF resultavam em baixíssima retenção de conhecimento. Os colaboradores passavam pelos módulos apenas para cumprir a obrigatoriedade (click-through), mas mantinham comportamentos de alto risco no dia a dia, como clicar em links suspeitos, compartilhar senhas e armazenar dados sensíveis de clientes em locais não homologados.',
-          
-          audienceDetails: 'Público heterogêneo composto por profissionais de diferentes faixas etárias e níveis de letramento digital. Exigia uma linguagem acessível, livre de jargões técnicos excessivos de TI, e com forte apelo visual para manter a atenção e demonstrar a aplicabilidade imediata do conteúdo.',
-          
-          objectives: [
-            '<strong>Compreender e Aplicar:</strong> Identificar os princípios fundamentais da LGPD (finalidade, necessidade e transparência) na rotina de manuseio de dados de clientes e parceiros.',
-            '<strong>Analisar e Diagnosticar:</strong> Reconhecer e-mails de phishing através da verificação crítica de remetentes, cabeçalhos, URLs mascaradas e gatilhos emocionais (urgência/ameaça).',
-            '<strong>Executar o Protocolo de Resposta:</strong> Aplicar a sequência correta de contenção de incidentes de segurança, notificando o SOC/TI e o DPO sem gerar pânico ou ocultação do erro.'
-          ],
-          
-          strategy: 'Adotou-se a <strong>Aprendizagem Baseada em Cenários (Scenario-Based Learning)</strong> integrada à <strong>Simulação de Crise</strong>. Em vez de ler regras teóricas sobre segurança, o participante é inserido em um dia de trabalho simulado onde recebe um e-mail de ransomware. As escolhas do usuário alteram o nível de ameaça de um painel de controle corporativo, demonstrando as consequências diretas das suas decisões sem colocar a infraestrutura real em risco.',
-          
-          architecture: [
-            '<strong>Módulo 1: Fundamentos Práticos da LGPD:</strong> Conceitos de dados pessoais, dados sensíveis, papéis (Controlador, Operador, DPO) e bases legais explicados através de casos do dia a dia.',
-            '<strong>Módulo 2: Engenharia Social & Phishing:</strong> Laboratório visual de análise de e-mails, links encurtados, anexos maliciosos e técnicas de vishing (chamadas telefônicas falsas).',
-            '<strong>Módulo 3: Simulação Prática de Incidente (Ransomware):</strong> Cenário interativo branching onde o aluno precisa reagir a um bloqueio de sistema por malware.',
-            '<strong>Módulo 4: Protocolos de Segurança Físico-Digital:</strong> Diretrizes de Mesa Limpa, Tela Limpa, uso seguro de VPN e gerenciamento de senhas fortes.',
-            '<strong>Avaliação de Conformidade Final:</strong> Quiz situacional com feedback imediato explicativo e emissão de atestado de conclusão.'
-          ],
-          
-          storyboard: {
-            screen: 'Tela 03 — O E-mail Suspeito da Diretoria',
-            goal: 'Avaliar a capacidade de identificação de links maliciosos e gatilhos de urgência falsa',
-            content: 'Uma caixa de entrada simulada exibe uma mensagem urgente supostamente enviada pelo Diretor Financeiro, solicitando a atualização imediata das credenciais de acesso ao sistema de pagamentos sob pena de bloqueio da conta.',
-            interaction: 'O participante pode clicar em três pontos de análise: A) Checar o endereço do remetente (revela domínio falso @empresass-ficticia.com); B) Clicar no link de redefinição; C) Acionar o botão "Reportar Phishing ao SOC".',
-            feedback: 'Se escolher (B), o sistema simula uma tela de infecção por ransomware com explicação detalhada da falha. Se escolher (A) ou (C), o participante recebe reforço positivo destacando os pontos de atenção identificados com sucesso.'
-          },
-          
-          experience: 'Interface moderna que simula um ambiente de trabalho digital responsivo. O progresso é acompanhado por um medidor de risco em tempo real, gerando engajamento contínuo através da gamificação estrutural.',
-          
-          assessment: 'Avaliação formativa distribuída ao longo dos cenários interativos (onde cada tomada de decisão calcula uma pontuação de risco) e avaliação somativa final composta por 5 questões situacionais complexas com nota mínima de corte fixada em 80%.',
-          
-          expectedResults: [
-            'Redução estimada de 75% na taxa de cliques em links maliciosos em testes internos de phishing simulado.',
-            'Aumento significativo na agilidade do reporte de incidentes suspeitos ao time de Segurança da Informação.',
-            'Conformidade com as exigências de treinamento contínuo previstas nos artigos de governança da LGPD.'
-          ],
-          
-          link: 'https://larissasilvah.github.io/TreinamentoCapacita-o-em-Prote-o-de-Dados-LGPD-l-Ciberseguran-a/'
-        },
-        
-        'case-2': {
-          title: 'Atendimento a Clientes de Empresas (B2B) & Gestão Estratégica de Contas',
-          badge: 'Projeto Conceitual / Case Fictício Estruturado',
-          solutionType: 'Plataforma Interativa de Estudo de Caso Ramificado (Branching Scenario)',
-          targetAudience: 'Analistas de Atendimento, Customer Success Managers (CSMs) e Gerentes de Contas B2B',
-          area: 'Atendimento ao Cliente, Vendas B2B & Desenvolvimento Organizacional',
-          format: 'Simulação Conversacional / Tomada de Decisão em Árvore',
-          tools: 'HTML5, CSS3 Custom Properties, JavaScript Logic System',
-          
-          context: 'Uma empresa fornecedora de softwares corporativos (SaaS B2B) vinha enfrentando uma queda expressiva nos índices de retenção de clientes (aumento do Churn Rate) e redução do Net Promoter Score (NPS) no segmento de contas enterprise.',
-          
-          problem: 'A equipe de atendimento atuava de maneira puramente reativa e operacional. Faltava aos analistas o raciocínio estratégico para identificar a estrutura de poder dentro do cliente (diferenciando usuários finais de decisores financeiros), resultando em negociações mal conduzidas durante momentos de crise e desalinhamento de expectativas contratuais.',
-          
-          audienceDetails: 'Profissionais de relacionamento com nível superior, boa comunicação verbal, porém com lacunas na capacidade de negociação complexa, escuta ativa e gerenciamento de conflitos corporativos de alto nível.',
-          
-          objectives: [
-            '<strong>Mapear Stakeholders:</strong> Distinguir os papéis de Comprador Econômico, Usuário Chave e Sabotador em uma conta B2B para adaptar a comunicação.',
-            '<strong>Aplicar Métodas de Desescalada:</strong> Utilizar técnicas de escuta empática e frameworks de negociação para contornar insatisfações críticas de clientes.',
-            '<strong>Proteger a Receita (Retention):</strong> Formular propostas de valor alinhadas aos indicadores de ROI do cliente antes da decisão de cancelamento.'
-          ],
-          
-          strategy: 'Utilização de <strong>Cenários Ramificados (Branching Scenarios)</strong>. O participante vive uma narrativa contínua onde cada resposta dada em uma reunião virtual com o cliente cliente afeta diretamente o indicador de "Termômetro da Conta" e o humor do cliente. Escolhas inadequadas levam ao cancelamento imediato do contrato, enquanto escolhas estratégicas desbloqueiam expansões de conta (Upsell).',
-          
-          architecture: [
-            '<strong>Módulo 1: Anatomia de uma Conta Enterprise:</strong> Mapeamento da matriz de influenciadores e decisores em negócios B2B.',
-            '<strong>Módulo 2: O Primeiro Sinal de Alerta:</strong> Identificando ruídos de comunicação e atrasos de alinhamento no onboarding.',
-            '<strong>Módulo 3: Reunião de Crise (Branching Interactive):</strong> Condução de uma call de emergência com o Diretor de Operações do cliente insatisfeito.',
-            '<strong>Módulo 4: Plano de Ação & Retenção:</strong> Construção de um plano de recuperação de conta baseado em entregáveis mensuráveis.',
-            '<strong>Debriefing & Matriz de Feedback:</strong> Análise analítica da rota percorrida pelo aluno na simulação.'
-          ],
-          
-          storyboard: {
-            screen: 'Tela 02 — A Reunião de Crise com o Diretor',
-            goal: 'Avaliar a postura do profissional diante de um cliente agressivo devido a um atraso na entrega do software',
-            content: 'O Diretor de Operações interrompe a apresentação dizendo: "Sua plataforma está atrasando minha operação em duas semanas. Quero cancelar o contrato agora!"',
-            interaction: 'Três opções de abordagem: A) Justificar o atraso culpando a equipe técnica interna; B) Interromper o cliente e mostrar a cláusula contratual de prazos; C) Validar a frustração do cliente, assumir a responsabilidade e apresentar o plano de mitigação imediato.',
-            feedback: 'A opção (A) eleva a raiva do cliente e encerra a reunião com churn. A opção (B) gera atrito jurídico. A opção (C) reduz a tensão e permite que a reunião avance para a repactuação de datas.'
-          },
-          
-          experience: 'Simulação guiada por diálogo fluido com interface visual inspirada em ferramentas de videoconferência corporativa, proporcionando forte imersão e realismo.',
-          
-          assessment: 'Avaliação formativa contínua baseada nos pontos acumulados na árvore de decisão e no estado final da conta (Cancelada, Mantida ou Expandida).',
-          
-          expectedResults: [
-            'Elevação da taxa de retenção em contas B2B submetidas a processos de negociação de crise.',
-            'Padronização do discurso de atendimento alinhado às melhores práticas de Customer Success.',
-            'Redução no tempo médio de resolução de tickets de insatisfação grave.'
-          ],
-          
-          link: 'https://larissasilvah.github.io/atendimento-ao-cliente./'
-        },
-        
-        'case-3': {
-          title: 'Guia Interativo de Comunicação Assertiva & Feedback no Trabalho Remoto',
-          badge: 'Projeto Conceitual / Case Fictício Estruturado',
-          solutionType: 'Guia Digital Interativo / Pílulas de Microlearning',
-          targetAudience: 'Líderes de equipe, gestores de projetos e colaboradores em modelo remoto ou híbrido',
-          area: 'Desenvolvimento de Liderança, Comunicação Organizacional & T&D',
-          format: 'Microlearning / Guia de Consulta Rápida (Just-in-Time)',
-          tools: 'Canva Pro, Design Editorial Digital, Micro-interações',
-          
-          context: 'Com a consolidação do trabalho remoto e híbrido, uma organização de grande porte percebeu um aumento nos ruídos de comunicação entre equipes distribuídas geográfica e fuso-horariamente.',
-          
-          problem: 'A ausência de diretrizes claras para comunicação assíncrona gerou um excesso de reuniões improdutivas (fadiga de Zoom), mensagens fragmentadas e ambíguas em chats internos, e o adiamento constante de feedbacks necessários por receio de mal-entendidos no meio digital.',
-          
-          audienceDetails: 'Profissionais atarefados, com rotinas dinâmicas e baixa disponibilidade de tempo para treinamentos longos. Necessitavam de um material de apoio objetivo, visual e de consulta imediata durante o fluxo de trabalho.',
-          
-          objectives: [
-            '<strong>Dominar a Matriz de Canais:</strong> Selecionar o canal correto (e-mail, chat, documento ou reunião) de acordo com a urgência e complexidade do assunto.',
-            '<strong>Redigir com Assertividade Assíncrona:</strong> Estruturar mensagens escritas completas que reduzam a necessidade de trocas contínuas de mensagens.',
-            '<strong>Aplicar o Modelo de Feedback SCI:</strong> Construir feedbacks estruturados (Situação, Comportamento e Impacto) adequados aos meios virtuais.'
-          ],
-          
-          strategy: 'Estratégia baseada em <strong>Microlearning e Performance Support (Apoio ao Desempenho)</strong>. Em vez de um curso tradicional, criou-se um guia digital interativo altamente visual, utilizando infográficos, matrizes comparativas do tipo "Faça / Não Faça" e templates prontos para cópia e aplicação diária.',
-          
-          architecture: [
-            '<strong>Pílula 1: A Matriz da Comunicação Remota:</strong> Guia de decisão visual para saber quando agendar uma reunião ou enviar uma mensagem assíncrona.',
-            '<strong>Pílula 2: A Arte do Texto Claro e Completo:</strong> Boas práticas de comunicação assíncrona sem pontas soltas.',
-            '<strong>Pílula 3: Etiqueta e Produtividade em Ferramentas de Chat:</strong> Regras de convivência, uso de menções e gerenciamento de status de disponibilidade.',
-            '<strong>Pílula 4: O Framework SCI para Feedbacks Remotos:</strong> Passo a passo para preparar e realizar reuniões 1-on-1 de feedback virtual.',
-            '<strong>Checklist de Autoavaliação:</strong> Ferramenta interativa de checagem para antes de enviar e-mails estratégicos ou agendar reuniões.'
-          ],
-          
-          storyboard: {
-            screen: 'Seção 03 — O Framework SCI (Situação - Comportamento - Impacto)',
-            goal: 'Ensinar a estrutura de feedback isenta de julgamentos pessoais no ambiente virtual',
-            content: 'Layout de cards expansíveis detalhando cada etapa do modelo SCI com exemplos comparativos.',
-            interaction: 'O aluno clica no card "Exemplo Incorreto" para ver uma frase vaga ("Você não se dedica às reuniões") e compara com o card "Exemplo Correto" ("Na reunião de ontem [Situação], você não apresentou a planilha planejada [Comportamento], o que atrasou a decisão do cliente [Impacto]").',
-            feedback: 'O guia destaca a diferença cognitiva entre criticar a pessoa e pontuar fatos observáveis.'
-          },
-          
-          experience: 'Navegação fluida e visualmente estimulante, otimizada para leitura rápida em computadores ou dispositivos móveis.',
-          
-          assessment: 'Autoavaliação reflexiva através de checklists interativos ao final de cada bloco do guia.',
-          
-          expectedResults: [
-            'Redução comprovada no número e na duração de reuniões internas desnecessárias.',
-            'Aumento na clareza das entregas assíncronas e diminuição de retrabalhos por mal-entendidos.',
-            'Melhoria nos índices de satisfação com o clima de equipe em pesquisas internas de clima.'
-          ],
-          
-          link: 'https://canva.link/9dwqqefz0msisks'
-        },
-        
-        'case-4': {
-          title: 'Treinamento Interativo de Seleção e Inspeção de EPIs',
-          badge: 'Projeto Conceitual / Case Fictício Estruturado',
-          solutionType: 'Ferramenta Interativa de Prática Guiada Visuocomportamental (SVG/JS)',
-          targetAudience: 'Operadores industriais, técnicos de manutenção, eletricistas e equipes de campo',
-          area: 'Segurança do Trabalho (SST), Compliance Operacional & T&D Industrial',
-          format: 'Prática Guiada Hands-On / Simulação de Inspeção Visual',
-          tools: 'JavaScript Vanilla, Manipulação de SVG Interativo, CSS Animations',
-          
-          context: 'Uma indústria de grande porte com operações de alto risco identificou que, apesar da realização anual de treinamentos de NR (Normas Regulamentadoras), continuava registrando pequenos incidentes e desvios de segurança em suas plantas fabris.',
-          
-          problem: 'Os treinamentos tradicionais focavam excessivamente na leitura estática de normas em PDF e slides teóricos. Na prática, os trabalhadores apresentavam dificuldades para inspecionar fisicamente o estado dos equipamentos de proteção (como identificar microfissuras em capacetes ou validades de filtros de respiradores) e frequentemente utilizavam o EPI incorreto para o risco específico da tarefa.',
-          
-          audienceDetails: 'Trabalhadores operacionais com perfil prático e cinestésico, que aprendem com muito mais eficiência através do "fazer" e da experimentação do que através da leitura de textos longos.',
-          
-          objectives: [
-            '<strong>Correlacionar Risco x Equipamento:</strong> Selecionar com 100% de precisão o kit de EPIs exigido para diferentes cenários operacionais (trabalho em altura, espaço confinado, risco elétrico).',
-            '<strong>Realizar Inspeção Pré-Uso:</strong> Identificar defeitos críticos, avarias, fissuras e prazos de validade em ilustrações vetorizadas detalhadas de equipamentos.',
-            '<strong>Executar a Paramentação Correta:</strong> Montar a sequência lógica de vestimenta e ajuste dos equipamentos antes de iniciar o trabalho.'
-          ],
-          
-          strategy: 'Abordagem de <strong>Prática Guiada Visuocomportamental com SVG Interativo</strong>. O trabalhador interage diretamente com representações gráficas vetoriais dos equipamentos na tela. Ele precisa "pegar" o equipamento, girar e clicar nos pontos estratégicos de inspeção para aprovar ou reprovar o item antes do uso em simulações digitais.',
-          
-          architecture: [
-            '<strong>Módulo 1: Mapeamento Visual de Riscos:</strong> Associação interativa de ícones de risco aos seus respectivos EPIs correspondentes.',
-            '<strong>Módulo 2: Bancada Virtual de Inspeção:</strong> Simulação interativa em SVG onde o aluno inspeciona capacetes, luvas dielétricas, cintos de paraquedista e óculos de proteção.',
-            '<strong>Módulo 3: Desafio da Paramentação:</strong> Arraste e seleção do kit completo adequado a um cenário aleatório sorteado pelo sistema.',
-            '<strong>Módulo 4: Simulação de Campo:</strong> Validação final onde o aluno aprova ou nega a entrada de um colega de trabalho fictício na área operacional.',
-            '<strong>Feedback Formativo Completo:</strong> Explicação detalhada dos riscos envolvidos em caso de erro.'
-          ],
-          
-          storyboard: {
-            screen: 'Tela 04 — Inspeção do Cinto de Segurança Tipo Paraquedista',
-            goal: 'Treinar a identificação visual de desgastes em fitas de poliéster e mosquetões',
-            content: 'Um vetor em SVG de alta precisão exibe um cinto de segurança completo. O sistema solicita que o participante inspecione 4 pontos críticos do equipamento.',
-            interaction: 'O aluno clica nas costuras de segurança, nas fivelas de ajuste e na fita de absorção de impacto. Ao clicar nas costuras, uma lupa amplia a imagem mostrando fios desfiados.',
-            feedback: 'O aluno deve selecionar entre "Equipamento Aprovado" ou "Equipamento Reprovado para Descarte". Se escolher Aprovado, o sistema mostra uma animação de ruptura simulated em teste de carga com o impacto fatal.'
-          },
-          
-          experience: 'Interface tátil, altamente interativa e intuitiva, desenhada para simular a sensação de segurar e examinar o equipamento físico na bancada de trabalho.',
-          
-          assessment: 'Avaliação prática somativa em que o aluno precisa atingir 100% de acerto nas etapas de inspeção de risco crítico para obter a validação técnica no módulo.',
-          
-          expectedResults: [
-            'Eliminação de acidentes decorrentes da utilização de EPIs danificados ou fora do prazo de validade.',
-            'Aumento do engajamento dos operadores nos treinamentos obrigatórios de SST.',
-            'Criação de um hábito de inspeção prévia rápida antes de qualquer atividade de risco em campo.'
-          ],
-          
-          link: 'https://larissasilvah.github.io/Treinamento/'
-        }
-      };
+  <section id="competencias">
+    <h2 class="section-title">Competências & Ferramentas</h2>
+    
+    <div class="skills-wrapper">
+      <div class="skills-group">
+        <h3>Design Instrucional (Foco Principal)</h3>
+        <div class="skills-tags">
+          <span class="tag primary">Design Instrucional</span>
+          <span class="tag primary">Análise de Necessidades de Aprendizagem</span>
+          <span class="tag primary">Definição de Objetivos de Aprendizagem</span>
+          <span class="tag primary">Roteirização</span>
+          <span class="tag primary">Storyboarding</span>
+          <span class="tag primary">Estratégias Instrucionais</span>
+          <span class="tag primary">Design de Avaliação</span>
+          <span class="tag primary">Microlearning</span>
+          <span class="tag primary">Desenvolvimento de Experiências Digitais de Aprendizagem</span>
+        </div>
+      </div>
 
-      function openCaseModal(caseId) {
-        const data = caseData[caseId];
-        if (!data) return;
+      <div class="skills-group">
+        <h3>T&D e Educação Corporativa</h3>
+        <div class="skills-tags">
+          <span class="tag">Educação Corporativa / T&D</span>
+          <span class="tag">Andragogia</span>
+          <span class="tag">Aprendizagem Baseada em Cenários</span>
+          <span class="tag">Design de Interação para Aprendizagem</span>
+        </div>
+      </div>
 
-        const objectivesHtml = data.objectives.map(obj => `<li>${obj}</li>`).join('');
-        const architectureHtml = data.architecture.map(item => `<li>${item}</li>`).join('');
-        const expectedResultsHtml = data.expectedResults.map(res => `<li>${res}</li>`).join('');
+      <div class="skills-group">
+        <h3>Tecnologia Educacional & Suporte Técnico</h3>
+        <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.75rem;">
+          Recursos utilizados para viabilizar e prototipar experiências interativas de aprendizagem.
+        </p>
+        <div class="skills-tags">
+          <span class="tag">HTML / CSS / JavaScript</span>
+          <span class="tag">VS Code</span>
+          <span class="tag">GitHub</span>
+          <span class="tag">Plataformas LMS</span>
+          <span class="tag">Canva</span>
+        </div>
+      </div>
+    </div>
+  </section>
 
-        const html = `
-          <div class="case-header">
-            <span class="case-tag-fictional">${data.badge}</span>
-            <h2 class="case-title">${data.title}</h2>
-            
-            <div class="case-meta-grid">
-              <div class="case-meta-item"><strong>Tipo de Solução</strong><span>${data.solutionType}</span></div>
-              <div class="case-meta-item"><strong>Público-Alvo</strong><span>${data.targetAudience}</span></div>
-              <div class="case-meta-item"><strong>Área do Projeto</strong><span>${data.area}</span></div>
-              <div class="case-meta-item"><strong>Tecnologias / Ferramentas</strong><span>${data.tools}</span></div>
-            </div>
+  <section id="projetos">
+    <h2 class="section-title">Estudos de Caso</h2>
+    
+    <div class="projects-grid">
+      <!-- Projeto 1 -->
+      <div class="project-card">
+        <div class="project-body">
+          <span class="project-type">Conformidade & Cibersegurança</span>
+          <h3 class="project-title">LGPD e Cibersegurança</h3>
+          <p class="project-desc">Treinamento instrucional em formato microlearning com tomada de decisão sobre proteção de dados no ambiente de trabalho.</p>
+          <div class="project-actions">
+            <button class="btn btn-primary" onclick="openCase('lgpd')">Ver Estudo de Caso</button>
+            <a href="#" class="btn btn-secondary" target="_blank">GitHub</a>
           </div>
+        </div>
+      </div>
 
-          <div class="case-section">
-            <h3><i data-lucide="building"></i> 01 — Contexto Organizacional & Desafio</h3>
-            <p>${data.context}</p>
+      <!-- Projeto 2 -->
+      <div class="project-card">
+        <div class="project-body">
+          <span class="project-type">Vendas & Gestão</span>
+          <h3 class="project-title">Atendimento B2B e Gestão de Contas</h3>
+          <p class="project-desc">Simulação de cenários comerciais complexos focada na negociação e resolução de conflitos corporativos.</p>
+          <div class="project-actions">
+            <button class="btn btn-primary" onclick="openCase('b2b')">Ver Estudo de Caso</button>
+            <a href="#" class="btn btn-secondary" target="_blank">GitHub</a>
           </div>
+        </div>
+      </div>
 
-          <div class="case-section">
-            <h3><i data-lucide="alert-circle"></i> 02 — Diagnóstico do Problema de Aprendizagem</h3>
-            <p>${data.problem}</p>
+      <!-- Projeto 3 -->
+      <div class="project-card">
+        <div class="project-body">
+          <span class="project-type">Liderança & Soft Skills</span>
+          <h3 class="project-title">Comunicação e Feedback Remoto</h3>
+          <p class="project-desc">Trilha iterativa orientada à aplicação de feedbacks construtivos em equipes distribuídas geograficamente.</p>
+          <div class="project-actions">
+            <button class="btn btn-primary" onclick="openCase('feedback')">Ver Estudo de Caso</button>
+            <a href="#" class="btn btn-secondary" target="_blank">GitHub</a>
           </div>
+        </div>
+      </div>
 
-          <div class="case-section">
-            <h3><i data-lucide="users"></i> 03 — Análise Detalhada do Público-Alvo</h3>
-            <p>${data.audienceDetails}</p>
+      <!-- Projeto 4 -->
+      <div class="project-card">
+        <div class="project-body">
+          <span class="project-type">Segurança do Trabalho</span>
+          <h3 class="project-title">Treinamento de EPI</h3>
+          <p class="project-desc">Módulo instrucional focado na identificação correta e uso adequado de Equipamentos de Proteção Individual.</p>
+          <div class="project-actions">
+            <button class="btn btn-primary" onclick="openCase('epi')">Ver Estudo de Caso</button>
+            <a href="#" class="btn btn-secondary" target="_blank">GitHub</a>
           </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-          <div class="case-section">
-            <h3><i data-lucide="target"></i> 04 — Objetivos de Aprendizagem (Taxonomia de Bloom)</h3>
-            <p>Ao final desta experiência educacional, o participante será capaz de:</p>
-            <ul>${objectivesHtml}</ul>
-          </div>
+  <!-- Modal do Estudo de Caso (Estrutura Única Dinâmica) -->
+  <div id="caseModal" class="modal-overlay">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeCase()">&times;</button>
+      <div id="modalBody"></div>
+    </div>
+  </div>
 
-          <div class="case-section">
-            <h3><i data-lucide="cpu"></i> 05 — Estratégia & Fundamentação Instrucional</h3>
-            <p>${data.strategy}</p>
-          </div>
+  <footer>
+    <p>&copy; Portfólio de Design Instrucional & Educação Corporativa.</p>
+  </footer>
 
-          <div class="case-section">
-            <h3><i data-lucide="git-merge"></i> 06 — Arquitetura de Conteúdo e Módulos</h3>
-            <ol>${architectureHtml}</ol>
-          </div>
+  <script>
+    lucide.createIcons();
 
-          <div class="case-section">
-            <h3><i data-lucide="layout"></i> 07 — Detalhamento do Storyboard / Roteiro Instrucional</h3>
-            <div class="storyboard-box">
-              <div class="storyboard-row"><span class="storyboard-label">Tela / Cena:</span> <span>${data.storyboard.screen}</span></div>
-              <div class="storyboard-row"><span class="storyboard-label">Objetivo Pedagógico:</span> <span>${data.storyboard.goal}</span></div>
-              <div class="storyboard-row"><span class="storyboard-label">Conteúdo / Contexto:</span> <span>${data.storyboard.content}</span></div>
-              <div class="storyboard-row"><span class="storyboard-label">Mecânica de Interação:</span> <span>${data.storyboard.interaction}</span></div>
-              <div class="storyboard-row"><span class="storyboard-label">Estratégia de Feedback:</span> <span>${data.storyboard.feedback}</span></div>
-            </div>
-          </div>
-
-          <div class="case-section">
-            <h3><i data-lucide="play-circle"></i> 08 — Experiência do Aprendiz (LX) & Interface</h3>
-            <p>${data.experience}</p>
-          </div>
-
-          <div class="case-section">
-            <h3><i data-lucide="check-square"></i> 09 — Estratégia de Avaliação da Aprendizagem</h3>
-            <p>${data.assessment}</p>
-          </div>
-
-          <div class="case-section">
-            <h3><i data-lucide="trending-up"></i> 10 — Indicadores de Impacto & Resultados Esperados</h3>
-            <ul>${expectedResultsHtml}</ul>
-          </div>
-
-          <div style="margin-top: 2.5rem; text-align: center;">
-            <a href="${data.link}" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="display: inline-flex; width: auto; padding: 0.85rem 2rem; font-size: 1rem;">
-              <i data-lucide="external-link"></i> Abrir / Executar a Solução Interativa
-            </a>
-          </div>
-        `;
-
-        document.getElementById('modalContent').innerHTML = html;
-        document.getElementById('caseModal').classList.add('active');
-        document.body.style.overflow = 'hidden';
-        lucide.createIcons();
+    const casesData = {
+      lgpd: {
+        title: "LGPD e Cibersegurança no Ambiente Corporativo",
+        badge: "Projeto conceitual — case fictício",
+        solucao: "Microlearning Interativo com Aprendizagem Baseada em Cenários",
+        publico: "Colaboradores administrativos de diferentes áreas",
+        formato: "Web / Digital Interativo",
+        ferramentas: "HTML, CSS, JavaScript, Canvas",
+        contexto: "Em um cenário corporativo fictício, observou-se aumento nas tentativas de phishing e incidentes leves de segurança decorrentes da falta de atenção ao manusear dados sensíveis de clientes.",
+        problema: "Os colaboradores conheciam superficialmente a lei, mas falhavam em aplicar as regras no dia a dia, como ao enviar e-mails com dados pessoais sem criptografia ou ao clicar em links suspeitos.",
+        perfilPúblico: "Profissionais administrativos com rotina intensa de e-mails, nível intermediário em tecnologia e pouco tempo disponível para treinamentos extensos.",
+        objetivos: [
+          "Identificar e-mails de phishing com base em sinais de alerta específicos.",
+          "Selecionar o procedimento correto de descarte e armazenamento de dados sensíveis.",
+          "Aplicar os princípios da LGPD em situações cotidianas de comunicação corporativa."
+        ],
+        estrategia: "Adoção de microlearning devido à restrição de tempo da equipe. Utilização de cenários baseados em dilemas reais onde a escolha errada gera feedback imediato e explicativo.",
+        arquitetura: "Módulo 1: Conceitos essenciais → Módulo 2: Identificação de Ameaças → Módulo 3: Prática em Cenários → Avaliação Final",
+        storyboard: "TELA 02 - Dilema do E-mail Suspense:\n- Objetivo: Testar identificação de Phishing.\n- Conteúdo: Interface simulada de e-mail de fornecedor solicitando senha.\n- Interação: Botões 'Acreditar' ou 'Reportar ao TI'.\n- Feedback: Exposição direta das consequências da escolha.",
+        experiencia: "Navegação fluida baseada em cards de decisão. Cada clique do usuário gera um desdobramento imediato com explicações sobre as diretrizes da LGPD.",
+        avaliacao: "Avaliação formativa integrada ao longo das decisões do cenário e avaliação somativa no encerramento para mensurar a retenção dos conceitos.",
+        resultados: [
+          "Redução potencial no risco de vazamento de dados por erro humano.",
+          "Aumento na taxa de report de e-mails suspeitos ao setor de TI.",
+          "Maior conformidade nas rotinas de tratamento de dados pessoais."
+        ]
+      },
+      b2b: {
+        title: "Atendimento B2B e Gestão de Contas",
+        badge: "Projeto conceitual — case fictício",
+        solucao: "Simulação de Diálogos & Resolução de Problemas",
+        publico: "Equipe de Vendas Executivas e Customer Success",
+        formato: "Web / Digital Interativo",
+        ferramentas: "HTML, CSS, JavaScript",
+        contexto: "Empresa conceitual de soluções corporativas enfrentava dificuldades no alinhamento de expectativas durante o processo pós-venda em contas B2B de alto valor.",
+        problema: "A equipe comercial focava excessivamente nas características do produto em vez de diagnosticar a dor real do cliente corporativo, resultando em insatisfação e cancelamentos precoces.",
+        perfilPúblico: "Executivos de contas com experiência prévia em vendas, alta competência de comunicação verbal, mas necessitando de alinhamento metodológico no atendimento consultivo.",
+        objetivos: [
+          "Analisar as necessidades do cliente corporativo a partir de perguntas estruturadas.",
+          "Resolver objeções complexas sem comprometer as margens da empresa.",
+          "Executar o fluxo de transição entre vendas e gestão de contas com clareza."
+        ],
+        estrategia: "Aprendizagem baseada em cenários ramificados, onde cada escolha de diálogo altera o nível de satisfação do cliente fictício e conduz a desfechos distintos.",
+        arquitetura: "Diagnóstico Comercial → Módulo 1: Escuta Ativa → Módulo 2: Gestão de Objeções → Simulação de Caso Crítico",
+        storyboard: "TELA 04 - Reunião com Cliente Insatisfeito:\n- Objetivo: Conduzir contenção de crise.\n- Conteúdo: Transcrição de fala do cliente cobrando prazos.\n- Interação: Escolha entre 3 respostas (Defensiva, Passiva, Consultiva).\n- Feedback: Barra de satisfação do cliente atualiza em tempo real.",
+        experiencia: "Interação dinâmica onde o usuário vivencia as consequências de suas escolhas de comunicação no relacionamento de longo prazo com a conta.",
+        avaliacao: "Avaliação por desempenho prático na simulação e checagem formativa ao final do ciclo de negociação.",
+        resultados: [
+          "Melhoria na qualidade do diagnóstico de vendas.",
+          "Redução estimada no tempo de resolução de conflitos com clientes.",
+          "Maior retenção e satisfação de contas corporativas."
+        ]
+      },
+      feedback: {
+        title: "Comunicação e Feedback no Trabalho Remoto",
+        badge: "Projeto conceitual — case fictício",
+        solucao: "Trilha Interativa de Liderança",
+        publico: "Gestores e Líderes de Equipes Distribuídas",
+    formato: "Web / Digital Interativo",
+        ferramentas: "HTML, CSS, JavaScript",
+        contexto: "Em um ambiente de trabalho remoto conceitual, identificou-se ruído na comunicação interna e hesitação dos líderes em fornecer feedbacks contínuos e construtivos.",
+        problema: "Acúmulo de insatisfações não ditas e feedbacks estruturados apenas durante a avaliação anual, reduzindo a clareza sobre expectativas e performance.",
+        perfilPúblico: "Líderes de equipe de variados níveis de maturidade, com rotinas com muitas reuniões e necessidade de abordagens diretas e práticas.",
+        objetivos: [
+          "Estruturar feedbacks utilizando o modelo SBI (Situação, Comportamento, Impacto).",
+          "Selecionar os canais adequados (síncronos ou assíncronos) para cada tipo de mensagem.",
+          "Avaliar reações emocionais e conduzir conversas difíceis de forma empática."
+        ],
+        estrategia: "Uso de guias passo a passo integrados a estudos de caso em que o participante aplica a estrutura de feedback e ajusta a comunicação.",
+        arquitetura: "Módulo 1: O Impacto da Comunicação Remota → Módulo 2: A Estrutura do Feedback → Módulo 3: Prática Guiada",
+        storyboard: "TELA 03 - Construtor de Feedback SBI:\n- Objetivo: Montar um feedback completo.\n- Conteúdo: Blocos arrastáveis para Situação, Comportamento e Impacto.\n- Interação: Montagem e validação da frase final.\n- Feedback: Análise de clareza e objetividade do texto gerado.",
+        experiencia: "A interface orienta o usuário através das etapas de construção de um feedback assertivo, permitindo exercitar a escrita antes da aplicação real.",
+        avaliacao: "Exercícios de fixação formativos ao longo do módulo e validação final baseada no reconhecimento da estrutura correta.",
+        resultados: [
+          "Aumento na frequência de feedbacks pontuais e construtivos.",
+          "Clareza aprimorada na definição de expectativas com liderados.",
+          "Redução de ruídos de comunicação em ambientes remotos."
+        ]
+      },
+      epi: {
+        title: "Treinamento de EPI (Equipamentos de Proteção Individual)",
+        badge: "Projeto conceitual — case fictício",
+        solucao: "Módulo Instrucional com Checklists e Inspeção Visual",
+        publico: "Operadores e Técnicos de Campo",
+        formato: "Web / Digital Interativo",
+        ferramentas: "HTML, CSS, JavaScript",
+        contexto: "Contexto operacional fictício onde o não uso ou uso incorreto de EPIs representava risco à segurança e conformidade normativa.",
+        problema: "Apesar de realizarem os treinamentos obrigatórios, os profissionais negligenciavam a inspeção prévia dos equipamentos antes da operação.",
+        perfilPúblico: "Trabalhadores operacionais, focados em atividades práticas, com preferência por instruções diretas, visuais e de rápida absorção.",
+        objetivos: [
+          "Identificar prazos de validade e sinais de desgaste nos EPIs.",
+          "Executar a sequência correta de paramentação e desparamentação.",
+          "Avaliar a conformidade do equipamento antes do início da jornada."
+        ],
+        estrategia: "Design focado na inspeção visual de equipamentos simulados, onde o aluno identifica falhas imperceptíveis a um olhar descuidado.",
+        arquitetura: "Módulo 1: Tipos de EPI e Normas → Módulo 2: Inspeção Prévia → Módulo 3: Paramentação Prática",
+        storyboard: "TELA 02 - Inspeção de Equipamento:\n- Objetivo: Encontrar desgastes em cinto de segurança.\n- Conteúdo: Imagem interativa do equipamento com áreas de zoom.\n- Interação: Clicar nos pontos de falha no tecido e fivelas.\n- Feedback: Confirmação de segurança ou alerta de substituição.",
+        experiencia: "Navegação prática com forte apelo visual, focando no reconhecimento rápido de inconformidades técnicas.",
+        avaliacao: "Simulado prático de inspeção visual com pontuação baseada no rigor de verificação do usuário.",
+        resultados: [
+          "Aumento na identificação preventiva de equipamentos danificados.",
+          "Maior adesão aos protocolos de segurança no ambiente de trabalho.",
+          "Conformidade contínua com as normas técnicas vigentes."
+        ]
       }
+    };
 
-      function closeCaseModal() {
-        document.getElementById('caseModal').classList.remove('active');
-        document.body.style.overflow = 'auto';
+    function openCase(key) {
+      const data = casesData[key];
+      if (!data) return;
+
+      const html = `
+        <div class="case-header">
+          <h2>${data.title}</h2>
+          <span class="case-badge">${data.badge}</span>
+        </div>
+
+        <div class="case-section">
+          <h3>Ficha Técnica</h3>
+          <p><strong>Tipo de Solução:</strong> ${data.solucao}</p>
+          <p><strong>Público-Alvo:</strong> ${data.publico}</p>
+          <p><strong>Formato:</strong> ${data.formato}</p>
+          <p><strong>Ferramentas Utilizadas:</strong> ${data.ferramentas}</p>
+        </div>
+
+        <div class="case-section">
+          <h3>01 — Contexto</h3>
+          <p>${data.contexto}</p>
+        </div>
+
+        <div class="case-section">
+          <h3>02 — Problema de Aprendizagem</h3>
+          <p>${data.problema}</p>
+        </div>
+
+        <div class="case-section">
+          <h3>03 — Público-Alvo</h3>
+          <p>${data.perfilPúblico}</p>
+        </div>
+
+        <div class="case-section">
+          <h3>04 — Objetivos de Aprendizagem</h3>
+          <ul>
+            ${data.objetivos.map(obj => `<li>${obj}</li>`).join('')}
+          </ul>
+        </div>
+
+        <div class="case-section">
+          <h3>05 — Estratégia Instrucional</h3>
+          <p>${data.estrategia}</p>
+        </div>
+
+        <div class="case-section">
+          <h3>06 — Arquitetura do Treinamento</h3>
+          <p>${data.arquitetura}</p>
+        </div>
+
+        <div class="case-section">
+          <h3>07 — Storyboard / Roteiro</h3>
+          <pre style="background: var(--bg-secondary); padding: 1rem; border-radius: 4px; font-size: 0.85rem; color: var(--text-muted); white-space: pre-wrap; font-family: inherit;">${data.storyboard}</pre>
+        </div>
+
+        <div class="case-section">
+          <h3>08 — Experiência de Aprendizagem</h3>
+          <p>${data.experiencia}</p>
+        </div>
+
+        <div class="case-section">
+          <h3>09 — Avaliação da Aprendizagem</h3>
+          <p>${data.avaliacao}</p>
+        </div>
+
+        <div class="case-section">
+          <h3>10 — Resultados Esperados</h3>
+          <ul>
+            ${data.resultados.map(res => `<li>${res}</li>`).join('')}
+          </ul>
+        </div>
+      `;
+
+      document.getElementById('modalBody').innerHTML = html;
+      document.getElementById('caseModal').style.display = 'block';
+    }
+
+    function closeCase() {
+      document.getElementById('caseModal').style.display = 'none';
+    }
+
+    window.onclick = function(event) {
+      const modal = document.getElementById('caseModal');
+      if (event.target == modal) {
+        closeCase();
       }
-
-      // Fechar modal ao clicar fora do container
-      document.getElementById('caseModal').addEventListener('click', function(e) {
-        if (e.target === this) {
-          closeCaseModal();
-        }
-      });
-
-      // Suporte para tecla ESC fechar o modal
-      document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape') {
-          closeCaseModal();
-        }
-      });
-    </script>
-  </body>
+    }
+  </script>
+</body>
 </html>
