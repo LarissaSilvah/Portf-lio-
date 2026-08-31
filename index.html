@@ -1,90 +1,253 @@
 <!DOCTYPE html>
-<html lang="pt-BR"> 
+<html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-</title> Larissa Raiane </title>
   <title>Portfólio | Design Instrucional</title>
   <script src="https://unpkg.com/lucide@latest"></script>
   <style>
-    /* CSS Original Preservado */
+    /* Paleta de Cores Terracota / Warm Earthy */
     :root {
-      --primary: #2563eb;
-      --primary-dark: #1d4ed8;
-      --secondary: #64748b;
-      --bg: #f8fafc;
-      --surface: #ffffff;
-      --text: #0f172a;
-      --text-light: #475569;
-      --border: #e2e8f0;
-      --radius: 8px;
+      --primary: #c85a32;        /* Terracota marcante */
+      --primary-dark: #a84320;   /* Terracota queimado */
+      --secondary: #707b88;      /* Cinza-azulado médio */
+      --slate: #3a4750;          /* Cinza ardósia escuro */
+      --bg: #f4efea;             /* Bege / Creme acolhedor */
+      --surface: #ffffff;        /* Branco para cards */
+      --surface-warm: #ebdcd0;   /* Bege alaranjado suave para destaques */
+      --text: #22252a;           /* Grafite escuro */
+      --text-light: #525a65;     /* Cinza médio suave */
+      --border: #dfd5cb;         /* Borda terrosa suave */
+      --radius: 10px;
+      --shadow: 0 4px 15px rgba(58, 37, 24, 0.05);
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background-color: var(--bg); color: var(--text); line-height: 1.6; }
+    body { 
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; 
+      background-color: var(--bg); 
+      color: var(--text); 
+      line-height: 1.6; 
+    }
     
-    header { background: var(--surface); border-bottom: 1px solid var(--border); padding: 1rem 2rem; position: sticky; top: 0; z-index: 10; }
+    header { 
+      background: var(--surface); 
+      border-bottom: 1px solid var(--border); 
+      padding: 1.2rem 2rem; 
+      position: sticky; 
+      top: 0; 
+      z-index: 10; 
+      box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+    }
     nav { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
-    .logo { font-weight: bold; font-size: 1.1rem; color: var(--text); text-decoration: none; }
-    .nav-links { display: flex; gap: 1.5rem; list-style: none; }
-    .nav-links a { color: var(--text-light); text-decoration: none; font-size: 0.95rem; }
+    .logo { font-weight: 700; font-size: 1.15rem; color: var(--primary-dark); text-decoration: none; letter-spacing: -0.02em; }
+    .nav-links { display: flex; gap: 1.8rem; list-style: none; }
+    .nav-links a { color: var(--text-light); text-decoration: none; font-size: 0.95rem; font-weight: 500; transition: color 0.2s; }
     .nav-links a:hover { color: var(--primary); }
 
-    main { max-width: 1100px; margin: 0 auto; padding: 2rem 1.5rem; }
-    section { margin-bottom: 3.5rem; }
+    main { max-width: 1100px; margin: 0 auto; padding: 2.5rem 1.5rem; }
+    section { margin-bottom: 4rem; }
 
-    .hero { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 2.5rem; margin-top: 1rem; }
-    .hero-tag { color: var(--primary); font-weight: 600; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.5rem; }
-    .hero h1 { font-size: 2.2rem; line-height: 1.2; margin-bottom: 1rem; color: var(--text); }
-    .hero p { color: var(--text-light); font-size: 1.05rem; max-width: 800px; }
+    .hero { 
+      background: var(--surface); 
+      border: 1px solid var(--border); 
+      border-radius: var(--radius); 
+      padding: 3rem 2.5rem; 
+      margin-top: 1rem; 
+      box-shadow: var(--shadow);
+      border-left: 5px solid var(--primary);
+    }
+    .hero-tag { 
+      color: var(--primary); 
+      font-weight: 700; 
+      font-size: 0.85rem; 
+      text-transform: uppercase; 
+      letter-spacing: 0.08em; 
+      margin-bottom: 0.75rem; 
+    }
+    .hero h1 { font-size: 2.3rem; line-height: 1.25; margin-bottom: 1rem; color: var(--text); font-weight: 800; }
+    .hero p { color: var(--text-light); font-size: 1.1rem; max-width: 820px; }
 
-    h2.section-title { font-size: 1.5rem; margin-bottom: 1.5rem; color: var(--text); display: flex; align-items: center; gap: 0.5rem; }
+    h2.section-title { 
+      font-size: 1.6rem; 
+      margin-bottom: 1.8rem; 
+      color: var(--text); 
+      display: flex; 
+      align-items: center; 
+      gap: 0.5rem; 
+      font-weight: 700;
+    }
 
-    /* Raciocínio / Banner */
-    .di-logic-banner { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem; margin-bottom: 2rem; }
-    .di-logic-banner h3 { font-size: 0.95rem; text-transform: uppercase; color: var(--secondary); margin-bottom: 1rem; }
-    .di-logic-steps { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem; font-size: 0.85rem; font-weight: 600; }
-    .di-logic-steps span:not(.di-logic-arrow) { background: var(--bg); padding: 0.4rem 0.8rem; border-radius: 4px; border: 1px solid var(--border); }
+    /* Banner da Lógica DI */
+    .di-logic-banner { 
+      background: var(--surface); 
+      border: 1px solid var(--border); 
+      border-radius: var(--radius); 
+      padding: 1.8rem; 
+      margin-bottom: 2rem; 
+      box-shadow: var(--shadow);
+    }
+    .di-logic-banner h3 { font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--slate); margin-bottom: 1.2rem; font-weight: 700; }
+    .di-logic-steps { display: flex; flex-wrap: wrap; align-items: center; gap: 0.6rem; font-size: 0.85rem; font-weight: 600; }
+    .di-logic-steps span:not(.di-logic-arrow) { 
+      background: var(--bg); 
+      color: var(--text);
+      padding: 0.5rem 0.9rem; 
+      border-radius: 6px; 
+      border: 1px solid var(--border); 
+    }
     .di-logic-arrow { color: var(--primary); display: flex; align-items: center; }
 
     /* Processo */
-    .process-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 1rem; }
-    .process-card { background: var(--surface); border: 1px solid var(--border); padding: 1rem; border-radius: var(--radius); text-align: center; }
-    .process-card h4 { font-size: 0.95rem; color: var(--primary); margin-bottom: 0.25rem; }
-    .process-card p { font-size: 0.8rem; color: var(--text-light); }
+    .process-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(135px, 1fr)); gap: 1rem; }
+    .process-card { 
+      background: var(--surface); 
+      border: 1px solid var(--border); 
+      padding: 1.2rem 1rem; 
+      border-radius: var(--radius); 
+      text-align: center; 
+      box-shadow: var(--shadow);
+      transition: transform 0.2s, border-color 0.2s;
+    }
+    .process-card:hover { transform: translateY(-3px); border-color: var(--primary); }
+    .process-card h4 { font-size: 0.95rem; color: var(--primary); margin-bottom: 0.35rem; font-weight: 700; }
+    .process-card p { font-size: 0.82rem; color: var(--text-light); }
 
     /* Competências */
-    .skills-block { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem; margin-bottom: 1rem; }
-    .skills-block h3 { font-size: 1.05rem; margin-bottom: 1rem; color: var(--text); }
-    .tag-container { display: flex; flex-wrap: wrap; gap: 0.5rem; }
-    .tag { background: var(--bg); border: 1px solid var(--border); padding: 0.3rem 0.75rem; border-radius: 20px; font-size: 0.85rem; color: var(--text-light); }
-    .tag.highlight { background: #eff6ff; border-color: #bfdbfe; color: var(--primary-dark); font-weight: 500; }
+    .skills-block { 
+      background: var(--surface); 
+      border: 1px solid var(--border); 
+      border-radius: var(--radius); 
+      padding: 1.8rem; 
+      margin-bottom: 1.2rem; 
+      box-shadow: var(--shadow);
+    }
+    .skills-block h3 { font-size: 1.1rem; margin-bottom: 1rem; color: var(--text); font-weight: 700; }
+    .tag-container { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+    .tag { 
+      background: var(--bg); 
+      border: 1px solid var(--border); 
+      padding: 0.4rem 0.85rem; 
+      border-radius: 20px; 
+      font-size: 0.85rem; 
+      color: var(--text-light); 
+      font-weight: 500;
+    }
+    .tag.highlight { 
+      background: var(--surface-warm); 
+      border-color: #d1b8a5; 
+      color: var(--primary-dark); 
+      font-weight: 600; 
+    }
 
-    /* Cards de Projetos */
-    .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; }
-    .project-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem; display: flex; flex-direction: column; justify-content: space-between; }
-    .project-card h3 { font-size: 1.15rem; margin-bottom: 0.5rem; }
-    .project-card p { font-size: 0.9rem; color: var(--text-light); margin-bottom: 1.5rem; flex-grow: 1; }
-    .btn-group { display: flex; gap: 0.5rem; }
-    .btn { display: inline-flex; align-items: center; justify-content: center; padding: 0.5rem 1rem; font-size: 0.85rem; font-weight: 600; border-radius: 4px; text-decoration: none; cursor: pointer; border: 1px solid transparent; }
+    /* Grid de Projetos */
+    .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.8rem; }
+    .project-card { 
+      background: var(--surface); 
+      border: 1px solid var(--border); 
+      border-radius: var(--radius); 
+      padding: 1.8rem; 
+      display: flex; 
+      flex-direction: column; 
+      justify-content: space-between; 
+      box-shadow: var(--shadow);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .project-card:hover { transform: translateY(-4px); box-shadow: 0 8px 25px rgba(58, 37, 24, 0.08); }
+    .project-card h3 { font-size: 1.2rem; margin-bottom: 0.6rem; color: var(--text); font-weight: 700; }
+    .project-card p { font-size: 0.92rem; color: var(--text-light); margin-bottom: 1.8rem; flex-grow: 1; }
+    .btn-group { display: flex; gap: 0.6rem; }
+    .btn { 
+      display: inline-flex; 
+      align-items: center; 
+      justify-content: center; 
+      padding: 0.6rem 1.1rem; 
+      font-size: 0.85rem; 
+      font-weight: 600; 
+      border-radius: 6px; 
+      text-decoration: none; 
+      cursor: pointer; 
+      border: 1px solid transparent; 
+      transition: all 0.2s;
+    }
     .btn-primary { background: var(--primary); color: white; }
     .btn-primary:hover { background: var(--primary-dark); }
-    .btn-outline { background: transparent; border-color: var(--border); color: var(--text-light); }
-    .btn-outline:hover { background: var(--bg); }
+    .btn-outline { background: transparent; border-color: var(--border); color: var(--slate); }
+    .btn-outline:hover { background: var(--bg); border-color: var(--slate); }
 
     /* Modal / Estudo de Caso */
-    .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 100; overflow-y: auto; padding: 1.5rem; }
-    .modal-body { background: var(--surface); max-width: 800px; margin: 2rem auto; border-radius: var(--radius); padding: 2rem; position: relative; }
-    .close-btn { position: absolute; top: 1rem; right: 1rem; background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--secondary); }
+    .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(34,37,42,0.6); backdrop-filter: blur(3px); z-index: 100; overflow-y: auto; padding: 1.5rem; }
+    .modal-body { background: var(--surface); max-width: 880px; margin: 2rem auto; border-radius: var(--radius); padding: 2.5rem; position: relative; box-shadow: 0 10px 30px rgba(0,0,0,0.15); }
+    .close-btn { position: absolute; top: 1.2rem; right: 1.2rem; background: none; border: none; font-size: 1.8rem; cursor: pointer; color: var(--secondary); }
     
-    .case-title { font-size: 1.5rem; margin-bottom: 0.25rem; }
-    .case-tag { display: inline-block; font-size: 0.75rem; background: #f1f5f9; border: 1px solid #cbd5e1; padding: 0.2rem 0.5rem; border-radius: 4px; color: var(--secondary); margin-bottom: 1.5rem; }
-    .case-block { margin-bottom: 1.5rem; }
-    .case-block h4 { font-size: 1rem; color: var(--primary); margin-bottom: 0.4rem; border-bottom: 1px solid var(--border); padding-bottom: 0.2rem; }
-    .case-block p, .case-block ul { font-size: 0.9rem; color: var(--text-light); }
-    .case-block ul { padding-left: 1.2rem; }
+    .case-title { font-size: 1.75rem; margin-bottom: 0.3rem; color: var(--text); font-weight: 800; }
+    .case-tag { display: inline-block; font-size: 0.8rem; background: var(--surface-warm); border: 1px solid #d1b8a5; padding: 0.25rem 0.6rem; border-radius: 4px; color: var(--primary-dark); font-weight: 600; margin-bottom: 1.8rem; }
+    
+    .case-block { margin-bottom: 1.8rem; }
+    .case-block h4 { font-size: 1.1rem; color: var(--primary); margin-bottom: 0.6rem; border-bottom: 1px solid var(--border); padding-bottom: 0.35rem; font-weight: 700; display: flex; align-items: center; gap: 0.4rem; }
+    .case-block p { font-size: 0.94rem; color: var(--text-light); margin-bottom: 0.6rem; line-height: 1.6; }
+    .case-block ul { padding-left: 1.2rem; font-size: 0.94rem; color: var(--text-light); }
+    .case-block li { margin-bottom: 0.4rem; }
 
-    footer { text-align: center; padding: 2rem; color: var(--secondary); font-size: 0.85rem; border-top: 1px solid var(--border); }
+    /* Estilização Interna de Tabelas e Destaques do Case */
+    .case-challenge {
+      background: var(--surface-warm);
+      border-left: 4px solid var(--primary);
+      padding: 1rem 1.2rem;
+      border-radius: 6px;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--primary-dark);
+      margin-bottom: 1.5rem;
+    }
+
+    .case-grid-two {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+    @media(max-width: 600px) { .case-grid-two { grid-template-columns: 1fr; } }
+
+    .mini-card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      padding: 0.85rem 1rem;
+      border-radius: 6px;
+    }
+    .mini-card strong { display: block; color: var(--slate); font-size: 0.85rem; text-transform: uppercase; margin-bottom: 0.25rem; }
+    .mini-card p { font-size: 0.88rem; margin-bottom: 0; }
+
+    .case-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 0.8rem;
+      font-size: 0.88rem;
+    }
+    .case-table th, .case-table td {
+      border: 1px solid var(--border);
+      padding: 0.6rem 0.8rem;
+      text-align: left;
+    }
+    .case-table th {
+      background: var(--bg);
+      color: var(--slate);
+      font-weight: 700;
+    }
+
+    .tech-sheet-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 0.8rem;
+      background: var(--bg);
+      padding: 1rem;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+    }
+    .tech-item { font-size: 0.85rem; color: var(--text-light); }
+    .tech-item strong { color: var(--text); display: block; font-weight: 600; }
+
+    footer { text-align: center; padding: 2.5rem; color: var(--secondary); font-size: 0.85rem; border-top: 1px solid var(--border); background: var(--surface); }
   </style>
 </head>
 <body>
@@ -128,31 +291,31 @@
 
       <div class="process-grid">
         <div class="process-card">
-          <h4> Diagnóstico</h4>
+          <h4>Diagnóstico</h4>
           <p>Análise de contexto e necessidades</p>
         </div>
         <div class="process-card">
-          <h4> Público</h4>
+          <h4>Público</h4>
           <p>Mapeamento de perfil e rotina</p>
         </div>
         <div class="process-card">
-          <h4> Objetivos</h4>
+          <h4>Objetivos</h4>
           <p>Metas mensuráveis e observáveis</p>
         </div>
         <div class="process-card">
-          <h4> Estratégia</h4>
+          <h4>Estratégia</h4>
           <p>Definição da abordagem didática</p>
         </div>
         <div class="process-card">
-          <h4> Storyboard</h4>
+          <h4>Storyboard</h4>
           <p>Roteirização e fluxo da solução</p>
         </div>
         <div class="process-card">
-          <h4> Desenvolvimento</h4>
+          <h4>Desenvolvimento</h4>
           <p>Construção e prototipagem digital</p>
         </div>
         <div class="process-card">
-          <h4> Avaliação</h4>
+          <h4>Avaliação</h4>
           <p>Mensuração e validação técnica</p>
         </div>
       </div>
@@ -187,7 +350,7 @@
 
       <div class="skills-block">
         <h3>Tecnologia Educacional e Ferramentas</h3>
-        <p style="font-size: 0.8rem; color: var(--secondary); margin-bottom: 0.5rem;">Recursos técnicos aplicados à criação e prototipagem de treinamentos:</p>
+        <p style="font-size: 0.85rem; color: var(--secondary); margin-bottom: 0.8rem;">Recursos técnicos aplicados à criação e prototipagem de treinamentos:</p>
         <div class="tag-container">
           <span class="tag">HTML</span>
           <span class="tag">CSS</span>
@@ -227,7 +390,7 @@
 
         <div class="project-card">
           <div>
-            <h3>Comunicação e Feedback Remoto</h3>
+            <h3>Comunicação e Feedback no Trabalho Remoto</h3>
             <p>Trilha orientada à aplicação prática do modelo SBI de feedback para lideranças de equipes distribuídas.</p>
           </div>
           <div class="btn-group">
@@ -258,7 +421,7 @@
   </div>
 
   <footer>
-    <p>&copy; Portfólio de Design Instrucional</p>
+    <p>&copy; Portfólio de Design Instrucional | Projeto conceitual desenvolvido para demonstração de competências.</p>
   </footer>
 
   <script>
@@ -266,186 +429,308 @@
 
     const cases = {
       lgpd: {
-        title: "LGPD e Cibersegurança",
+        title: "LGPD e Cibersegurança no Cotidiano Corporativo",
         badge: "Projeto conceitual — case fictício",
-        solucao: "Microlearning + Aprendizagem Baseada em Cenários",
-        publico: "Colaboradores administrativos",
-        formato: "Web Interativo",
-        ferramentas: "HTML, CSS, JS",
-        contexto: "Cenário corporativo fictício com aumento de tentativas de phishing e erros operacionais no tratamento de dados.",
-        problema: "A equipe conhecia a lei superficialmente, mas não identificava riscos em tarefas diárias, como e-mails suspeitos ou compartilhamento inadequado de planilhas.",
-        perfil: "Profissionais de escritório com rotina corrida e pouco tempo para treinamentos longos.",
-        objetivos: [
-          "Identificar e-mails de phishing com base em sinais de alerta.",
-          "Selecionar o procedimento correto para proteção de dados sensíveis.",
-          "Aplicar os princípios da LGPD na comunicação do dia a dia."
+        desafio: "🎯 Desafio de Aprendizagem: Como capacitar colaboradores administrativos a reconhecerem e mitigarem riscos de vazamento de dados e phishing durante suas rotinas diárias, sem interromper o fluxo de trabalho?",
+        techSheet: {
+          solucao: "Microlearning de Conscientização em Segurança da Informação",
+          tiposolucao: "Microlearning / Treinamento digital",
+          publico: "Colaboradores e assistentes administrativos",
+          area: "Compliance / Segurança da Informação / T&D",
+          formato: "Web interativo responsive",
+          modalidade: "Autoinstrucional (Online)",
+          cargahoraria: "15 a 20 minutos (divididos em pílulas)",
+          estrategias: "Aprendizagem baseada em cenários, microlearning, tomada de decisão com feedback imediato",
+          recursos: "Dilemas práticos, simulação de e-mails de phishing, checagem rápida de retenção",
+          ferramentas: "HTML5, CSS3, JavaScript ES6",
+          avaliacao: "Avaliação formativa integrada aos cenários e checagem prática final",
+          status: "Projeto conceitual — case fictício"
+        },
+        contexto: [
+          "No cenário corporativo moderno, o volume de dados pessoais e corporativos trafegando por planilhas, e-mails e sistemas de gestão cresceu exponencialmente. Paralelamente, os ataques de engenharia social (como phishing) tornaram-se mais sofisticados, mirando a camada mais vulnerável da infraestrutura: o fator humano.",
+          "Nesta organização fictícia, identificou-se que grande parte dos colaboradores administrativos conhecia a existência da LGPD e a importância da cibersegurança apenas em nível teórico. Na prática, comportamentos de risco eram recorrentes, como o compartilhamento de dados sensíveis por canais não homologados e o clique em links suspeitos.",
+          "A ausência de uma ação educacional focada no comportamento operacional expunha a empresa a riscos graves, como sanções financeiras da ANPD, vazamento de credenciais de acesso, perda de confiança do cliente e interrupção das operações."
         ],
-        estrategia: "Adoção de microlearning devido ao tempo restrito da equipe, combinado com dilemas práticos que exigem tomada de decisão e oferecem feedback imediato.",
-        arquitetura: "Módulo 1: Conceitos essenciais → Módulo 2: Identificação de Ameaças → Módulo 3: Prática em Cenários → Avaliação Final",
-        storyboard: "TELA 02: Interface simulada de e-mail | Objetivo: Testar identificação de Phishing | Interação: Botões 'Acreditar' ou 'Reportar' | Feedback: Explicação da escolha.",
-        experiencia: "O participante navega por cenários curtos e toma decisões práticas recebendo explicações imediatas sobre as regras de conformidade.",
-        avaliacao: "Avaliação formativa durante a escolha dos cenários e checagem final somativa de retenção de conceitos.",
-        resultados: [
-          "Redução potencial na taxa de cliques em links de risco.",
-          "Aumento no reporte preventivo de incidentes de segurança.",
-          "Maior conformidade nas rotinas de tratamento de dados."
+        problema: {
+          negocio: "Aumento da vulnerabilidade institucional a incidentes de segurança da informação e não conformidade com as diretrizes da LGPD.",
+          aprendizagem: "Incapacidade prática de correlacionar os conceitos teóricos de proteção de dados com as decisões tomadas na rotina administrativa diária.",
+          necessidade: "Desenvolver a habilidade de identificar sinais de alerta de phishing, aplicar protocolos seguros de manuseio de dados e reportar incidentes preventivamente."
+        },
+        publico: {
+          perfil: "Profissionais administrativos com rotina intensa e multifacetada.",
+          responsabilidades: "Emissão de relatórios, comunicação com clientes e fornecedores, manipulação de planilhas e e-mails.",
+          contexto: "Trabalho em escritório ou home office com alto fluxo de mensagens diárias.",
+                  desafios: "Falta de tempo para treinamentos extensos, sensação de que segurança da informação é responsabilidade exclusiva do setor de TI, sobrecarga de e-mails."
+        },
+        objetivos: [
+          "Identificar no mínimo 4 indicadores de um e-mail de phishing em simulações realistas.",
+          "Classificar corretamente dados pessoais e dados pessoais sensíveis em cenários operacionais.",
+          "Aplicar o procedimento correto de reporte de incidentes em caso de suspeita de vazamento de dados."
+        ],
+        estrategia: [
+          "Estrutura em pílulas de conteúdo (microlearning) para leitura e interação dinâmicas.",
+          "Uso de simulações de e-mails e telas reais de trabalho para maximizar a transferência do aprendizado.",
+          "Feedbacks explicativos imediatos tanto para escolhas corretas quanto incorretas."
         ]
       },
       b2b: {
-        title: "Atendimento B2B e Gestão de Contas",
+        title: "Atendimento B2B e Gestão de Contas Corporativas",
         badge: "Projeto conceitual — case fictício",
-        solucao: "Simulação de Diálogos e Resolução de Conflitos",
-        publico: "Executivos de Contas e Customer Success",
-        formato: "Web Interativo",
-        ferramentas: "HTML, CSS, JS",
-        contexto: "Empresa conceitual enfrentando ruídos no alinhamento de expectativas durante o pós-venda B2B.",
-        problema: "Foco excessivo nas características técnicas do produto e baixa investigação das necessidades reais dos clientes corporativos.",
-        perfil: "Profissionais comerciais com bom diálogo, precisando aperfeiçoar a escuta consultiva.",
-        objetivos: [
-          "Analisar necessidades do cliente a partir de perguntas estruturadas.",
-          "Resolver objeções sem comprometer as diretrizes da empresa.",
-          "Executar a passagem de bastão entre vendas e atendimento de forma transparente."
+        desafio: "🎯 Desafio de Aprendizagem: Como reduzir o churn e resolver conflitos operacionais em contas B2B críticas através de uma comunicação assertiva e negociação baseada na escuta ativa?",
+        techSheet: {
+          solucao: "Simulação Interativa de Tomada de Decisão em Vendas/CS",
+          tiposolucao: "Simulação / Scenario-Based Learning",
+          publico: "Executivos de Contas e Gerentes de Success/Atendimento B2B",
+          area: "Comercial / Customer Success / T&D",
+          formato: "Web App Interativo com Ramificação de Decisões",
+          modalidade: "Autoinstrucional",
+          cargahoraria: "25 a 30 minutos",
+          estrategias: "Branching Scenarios, simulação de reunião crítica, role-play digital",
+          recursos: "Diálogos ramificados, indicador de nível de satisfação do cliente (NPS)",
+          ferramentas: "HTML5, CSS3, JavaScript ES6, Canva (assets)",
+          avaliacao: "Avaliação somativa ao final da jornada de simulação",
+          status: "Projeto conceitual — case fictício"
+        },
+        contexto: [
+          "No mercado B2B, a retenção de clientes depende da habilidade das equipes em gerenciar expectativas, responder a falhas de entrega de forma transparente e negociar soluções ganha-ganha sob alta pressão.",
+          "Observou-se um aumento no cancelamento de contratos devido a atritos não resolvidos em fases iniciais de implementação e desalinhamento na comunicação interdepartamental."
         ],
-        estrategia: "Aprendizagem baseada em cenários onde cada escolha nas opções de diálogo afeta a satisfação do cliente fictício.",
-        arquitetura: "Módulo 1: Escuta Consultiva → Módulo 2: Gestão de Objeções → Simulação de Conflito",
-        storyboard: "TELA 04: Reunião com cliente insatisfeito | Objetivo: Contenção de crise | Interação: Escolha entre 3 respostas | Feedback: Indicador de satisfação altera na tela.",
-        experiencia: "Navegação por árvores de diálogo onde o usuário vivencia o impacto das suas decisões no relacionamento de longo prazo.",
-        avaliacao: "Avaliação por desempenho na simulação e checagem prática dos passos de negociação.",
-        resultados: [
-          "Aprimoramento no diagnóstico de vendas.",
-          "Redução estimada no tempo de resolução de conflitos.",
-          "Maior retenção de contas corporativas."
+        problema: {
+          negocio: "Perda de receita recorrente (ARR) por conta do cancelamento prematuro de contratos B2B de alto valor.",
+          aprendizagem: "Postura reativa e defensiva por parte da equipe de atendimento diante de clientes insatisfeitos.",
+          necessidade: "Capacitar os times no uso de técnicas de desescalada de conflitos e negociação integrativa."
+        },
+        publico: {
+          perfil: "Analistas e Gerentes de Contas B2B.",
+          responsabilidades: "Gestão do relacionamento diário, alinhamento de prazos e entregáveis, renovação contratual.",
+          contexto: "Reuniões frequentes de acompanhamento e resolução de problemas sob restrições de tempo.",
+          desafios: "Gerenciar clientes exigentes e mitigar erros operacionais sem comprometer a margem de lucro da empresa."
+        },
+        objetivos: [
+          "Mapear a causa raiz da insatisfação do cliente utilizando a técnica de perguntas abertas.",
+          "Aplicar o protocolo de 4 etapas para desescalada de conflitos em reuniões de crise.",
+          "Construir propostas de renegociação mantendo o equilíbrio entre a satisfação do cliente e a rentabilidade do negócio."
+        ],
+        estrategia: [
+          "Navegação estilo 'Escolha sua própria aventura' (Branching Scenario) onde cada escolha altera o humor do cliente.",
+          "Indicador visual de satisfação em tempo real para dar feedback imediato sobre a abordagem selecionada.",
+          "Análise detalhada pós-simulação destacando os pontos de melhoria nas abordagens escolhidas."
         ]
       },
       feedback: {
-        title: "Comunicação e Feedback Remoto",
+        title: "Comunicação e Feedback no Trabalho Remoto",
         badge: "Projeto conceitual — case fictício",
-        solucao: "Trilha Interativa de Liderança",
-        publico: "Líderes de Equipes Distribuídas",
-        formato: "Web Interativo",
-        ferramentas: "HTML, CSS, JS",
-        contexto: "Empresa em regime de trabalho remoto com desafios de alinhamento e hesitação na aplicação de feedbacks contínuos.",
-        problema: "Acúmulo de insatisfações e falta de clareza nas expectativas por conta de conversas de feedback vagas.",
-        perfil: "Líderes com rotinas intensas de reuniões que necessitam de uma estrutura prática de comunicação.",
-        objetivos: [
-          "Estruturar feedbacks pelo modelo SBI (Situação, Comportamento, Impacto).",
-          "Selecionar o canal adequado para cada tipo de conversa.",
-          "Conduzir conversas difíceis com foco no desenvolvimento."
+        desafio: "🎯 Desafio de Aprendizagem: Como apoiar líderes na estruturação de feedbacks construtivos e acionáveis para equipes geograficamente distribuídas?",
+        techSheet: {
+          solucao: "Trilha de Aprendizagem em Liderança com Modelo SBI",
+          tiposolucao: "Trilha Interativa de Desenvolvimento de Liderança",
+          publico: "Líderes de Equipes, Coordenadores e Gerentes",
+          area: "Gestão de Pessoas / Liderança / T&D",
+          formato: "Guia Interativo com Exercícios Práticos",
+          modalidade: "Blended Learning / Autoinstrucional",
+          cargahoraria: "20 minutos",
+          estrategias: "Modelo SBI (Situation-Behavior-Impact), estudo de casos curtos",
+          recursos: "Matriz de feedbacks, templates editáveis para preparação de 1-on-1s",
+          ferramentas: "HTML5, CSS3, JavaScript ES6",
+          avaliacao: "Construção prática de script de feedback e validação por pares",
+          status: "Projeto conceitual — case fictício"
+        },
+        contexto: [
+          "Com a transição para modelos remotos e híbridos, a comunicação assíncrona e as reuniões pontuais exigem clareza absoluta na transmissão de expectativas e alinhamento de desempenho.",
+          "A falta de preparo nas conversas individuais (1-on-1s) vinha gerando ruídos de comunicação, queda no engajamento e incertezas quanto às prioridades do time."
         ],
-        estrategia: "Exercícios práticos de montagem de texto e escolha de condutas em situações reais do trabalho remoto.",
-        arquitetura: "Módulo 1: O Feedback no Remoto → Módulo 2: Estrutura SBI → Módulo 3: Prática Guiada",
-        storyboard: "TELA 03: Construtor SBI | Objetivo: Montar mensagem | Interação: Seleção de blocos texto | Feedback: Análise de clareza do texto.",
-        experiencia: "Ambiente guiado onde o líder treina a construção da frase correta antes de aplicar no dia a dia.",
-        avaliacao: "Exercícios formativos de fixação e validação do reconhecimento da estrutura SBI.",
-        resultados: [
-          "Aumento na frequência de feedbacks alinhados.",
-          "Maior clareza na definição de objetivos de desenvolvimento.",
-          "Redução de ruídos de comunicação."
+        problema: {
+          negocio: "Aumento da rotatividade de talentos (turnover) motivada por falhas na comunicação com a gestão direta.",
+          aprendizagem: "Dificuldade em separar observações objetivas de julgamentos pessoais ao aplicar um feedback.",
+          necessidade: "Estruturar o processo de feedback utilizando uma metodologia clara, mensurável e empática."
+        },
+        publico: {
+          perfil: "Líderes e gestores de primeira viagem ou experientes lidando com times remotos.",
+          responsabilidades: "Gestão de metas, acompanhamento individual de performance, cultura do time.",
+          contexto: "Rotina acelerada com comunicação predominantemente por texto e reuniões por vídeo.",
+          desafios: "Dar retornos difíceis sem soar agressivo e manter a coesão da equipe à distância."
+        },
+        objetivos: [
+          "Diferenciar fatos observáveis de inferências no momento da preparação do feedback.",
+          "Estruturar mensagens alinhadas aos pilares do modelo SBI (Situação, Comportamento e Impacto).",
+          "Elaborar planos de ação colaborativos ao final das sessões de alinhamento."
+        ],
+        estrategia: [
+          "Exercícios drag-and-drop / seleção para categorizar trechos de discursos em Situação, Comportamento ou Impacto.",
+          "Análise comparativa de exemplos reais: 'Feedback Genérico' versus 'Feedback SBI Estruturado'.",
+          "Simulador de conversa interativo com foco no acompanhamento e escuta empática."
         ]
       },
       epi: {
-        title: "Treinamento de EPI",
+        title: "Inspeção e Uso Correto de EPIs em Ambientes Operacionais",
         badge: "Projeto conceitual — case fictício",
-        solucao: "Módulo Instrucional com Inspeção Visual",
-        publico: "Operadores e Técnicos de Campo",
-        formato: "Web Interativo",
-        ferramentas: "HTML, CSS, JS",
-        contexto: "Ambiente operacional fictício necessitando de reforço no cumprimento dos protocolos de inspeção de segurança.",
-        problema: "Uso de equipamentos sem verificação prévia de desgaste ou prazo de validade.",
-        perfil: "Trabalhadores operacionais com foco em atividades práticas e visuais.",
-        objetivos: [
-          "Identificar sinais de desgaste nos EPIs.",
-          "Executar a sequência correta de uso e paramentação.",
-          "Avaliar a conformidade técnica do equipamento antes da operação."
+        desafio: "🎯 Desafio de Aprendizagem: Como garantir a correta higienização, inspeção prévia e uso dos Equipamentos de Proteção Individual para redução de acidentes de trabalho?",
+        techSheet: {
+          solucao: "Módulo Virtual de Inspeção Visual e Segurança Operacional",
+          tiposolucao: "Treinamento Técnico Operacional / Gamificado",
+          publico: "Operadores de Produção, Mantenedores e Técnicos de Campo",
+          area: "EHS / Segurança do Trabalho / Operações",
+          formato: "Web Interativo Gamificado",
+          modalidade: "Autoinstrucional",
+          cargahoraria: "15 minutos",
+          estrategias: "Gamificação, simulação de inspeção visual, hotspotting",
+          recursos: "Checklist interativo de equipamentos, identificação de avarias em imagens 2D",
+          ferramentas: "HTML5, CSS3, JavaScript ES6",
+          avaliacao: "Desafio prático de identificação de não conformidades com nota de corte",
+          status: "Projeto conceitual — case fictício"
+        },
+        contexto: [
+          "Em ambientes industriais e operacionais, a utilização inadequada ou a falta de inspeção nos EPIs constitui uma das maiores causas de incidentes e afastamentos por acidentes de trabalho.",
+          "Embora os colaboradores realizassem treinamentos teóricos anuais de NR-6, a verificação rotineira do estado dos equipamentos antes do início da jornada continuava sendo negligenciada."
         ],
-        estrategia: "Exercícios visuais de identificação de falhas em imagens interativas de equipamentos.",
-        arquitetura: "Módulo 1: Tipos de EPI → Módulo 2: Inspeção Prévia → Módulo 3: Paramentação Prática",
-        storyboard: "TELA 02: Inspeção de Cinto de Segurança | Objetivo: Encontrar desgastes | Interação: Clique nos pontos de falha | Feedback: Confirmação ou alerta.",
-        experiencia: "Interação direta e focada em reconhecimento rápido de não conformidades visuais.",
-        avaliacao: "Simulado de inspeção visual com pontuação baseada na precisão de identificação das falhas.",
-        resultados: [
-          "Aumento na identificação preventiva  de itens danificados.",
-          "Maior adesão às rotinas de verificação de segurança.",
-          "Conformidade contínua com as normas vigentes."
+        problema: {
+          negocio: "Ocorrência de acidentes evitáveis e riscos de interrupção na linha de produção por descumprimento de normas de segurança.",
+          aprendizagem: "Falta de hábito na realização da checagem prévia das condições físicas dos equipamentos de proteção.",
+          necessidade: "Fixar o procedimento visual de verificação diária de EPIs de forma rápida, interativa e memorável."
+        },
+        publico: {
+          perfil: "Colaboradores do setor operacional e de manutenção.",
+          responsabilidades: "Execução de tarefas práticas em chão de fábrica ou área externa.",
+          contexto: "Atividades que exigem alto nível de atenção à integridade física e normas de segurança rígidas.",
+          desafios: "Resistência a treinamentos longos e puramente teóricos em sala de aula."
+        },
+        objetivos: [
+          "Identificar no mínimo 3 avarias críticas em capacetes, luvas e cintos de segurança durante a simulação.",
+          "Demonstrar a sequência correta de paramentação e desparamentação dos equipamentos.",
+          "Registrar adequadamente a necessidade de substituição do EPI junto ao setor de EHS."
+        ],
+        estrategia: [
+          "Mecanismo visual de 'encontre o defeito' (hotspot), onde o usuário deve inspecionar virtualmente as peças.",
+          "Pontuação por precisão e rapidez na identificação de desgastes e rachaduras.",
+          "Checklist interativo de fácil assimilação adaptado para acesso rápido em dispositivos móveis."
         ]
       }
     };
 
     function showCase(key) {
-      const c = cases[key];
-      if(!c) return;
+      const data = cases[key];
+      if (!data) return;
+
+      let techSheetHtml = '';
+      if (data.techSheet) {
+        techSheetHtml = `
+          <div class="case-block">
+            <h4><i data-lucide="file-text"></i> Ficha Técnica da Solução</h4>
+            <div class="tech-sheet-grid">
+              <div class="tech-item"><strong>Solução:</strong> ${data.techSheet.solucao}</div>
+              <div class="tech-item"><strong>Tipo:</strong> ${data.techSheet.tiposolucao}</div>
+              <div class="tech-item"><strong>Público-Alvo:</strong> ${data.techSheet.publico}</div>
+              <div class="tech-item"><strong>Área:</strong> ${data.techSheet.area}</div>
+              <div class="tech-item"><strong>Formato:</strong> ${data.techSheet.formato}</div>
+              <div class="tech-item"><strong>Modalidade:</strong> ${data.techSheet.modalidade}</div>
+              <div class="tech-item"><strong>Carga Horária:</strong> ${data.techSheet.cargahoraria}</div>
+              <div class="tech-item"><strong>Ferramentas:</strong> ${data.techSheet.ferramentas}</div>
+            </div>
+          </div>
+        `;
+      }
+
+      let contextoHtml = '';
+      if (data.contexto && data.contexto.length > 0) {
+        contextoHtml = `
+          <div class="case-block">
+            <h4><i data-lucide="book-open"></i> Contexto do Projeto</h4>
+            ${data.contexto.map(p => `<p>${p}</p>`).join('')}
+          </div>
+        `;
+      }
+
+      let problemaHtml = '';
+      if (data.problema) {
+        problemaHtml = `
+          <div class="case-block">
+            <h4><i data-lucide="alert-triangle"></i> Diagnóstico do Problema</h4>
+            <div class="case-grid-two">
+              <div class="mini-card">
+                <strong>Impacto no Negócio</strong>
+                <p>${data.problema.negocio}</p>
+              </div>
+              <div class="mini-card">
+                <strong>Gargalo de Aprendizagem</strong>
+                <p>${data.problema.aprendizagem}</p>
+              </div>
+            </div>
+            <p style="font-size:0.9rem; color:var(--text-light); margin-top:0.5rem;">
+              <strong>Necessidade Mapeada:</strong> ${data.problema.necessidade}
+            </p>
+          </div>
+        `;
+      }
+
+      let publicoHtml = '';
+      if (data.publico) {
+        publicoHtml = `
+          <div class="case-block">
+            <h4><i data-lucide="users"></i> Mapeamento do Público-Alvo</h4>
+            <table class="case-table">
+              <tr><th>Perfil</th><td>${data.publico.perfil}</td></tr>
+              <tr><th>Responsabilidades</th><td>${data.publico.responsabilidades}</td></tr>
+              <tr><th>Contexto de Atuação</th><td>${data.publico.contexto}</td></tr>
+              <tr><th>Principais Desafios</th><td>${data.publico.desafios}</td></tr>
+            </table>
+          </div>
+        `;
+      }
+
+      let objetivosHtml = '';
+      if (data.objetivos && data.objetivos.length > 0) {
+        objetivosHtml = `
+          <div class="case-block">
+            <h4><i data-lucide="target"></i> Objetivos de Aprendizagem</h4>
+            <ul>
+              ${data.objetivos.map(obj => `<li>${obj}</li>`).join('')}
+            </ul>
+          </div>
+        `;
+      }
+
+      let estrategiaHtml = '';
+      if (data.estrategia && data.estrategia.length > 0) {
+        estrategiaHtml = `
+          <div class="case-block">
+            <h4><i data-lucide="cpu"></i> Estratégia Instrucional e Design</h4>
+            <ul>
+              ${data.estrategia.map(est => `<li>${est}</li>`).join('')}
+            </ul>
+          </div>
+        `;
+      }
 
       const html = `
-        <h3 class="case-title">${c.title}</h3>
-        <span class="case-tag">${c.badge}</span>
-
-        <div class="case-block">
-          <h4>Ficha Técnica</h4>
-          <p><strong>Solução:</strong> ${c.solucao} | <strong>Público:</strong> ${c.publico} | <strong>Formato:</strong> ${c.formato} | <strong>Ferramentas:</strong> ${c.ferramentas}</p>
-        </div>
-
-        <div class="case-block">
-          <h4>01 — Contexto</h4>
-          <p>${c.contexto}</p>
-        </div>
-
-        <div class="case-block">
-          <h4>02 — Problema de Aprendizagem</h4>
-          <p>${c.problema}</p>
-        </div>
-
-        <div class="case-block">
-          <h4>03 — Público-Alvo</h4>
-          <p>${c.perfil}</p>
-        </div>
-
-        <div class="case-block">
-          <h4>04 — Objetivos de Aprendizagem</h4>
-          <ul>${c.objetivos.map(o => `<li>${o}</li>`).join('')}</ul>
-        </div>
-
-        <div class="case-block">
-          <h4>05 — Estratégia Instrucional</h4>
-          <p>${c.estrategia}</p>
-        </div>
-
-        <div class="case-block">
-          <h4>06 — Arquitetura do Treinamento</h4>
-          <p>${c.arquitetura}</p>
-        </div>
-
-        <div class="case-block">
-          <h4>07 — Storyboard / Roteiro</h4>
-          <p><em>${c.storyboard}</em></p>
-        </div>
-
-        <div class="case-block">
-          <h4>08 — Experiência de Aprendizagem</h4>
-          <p>${c.experiencia}</p>
-        </div>
-
-        <div class="case-block">
-          <h4>09 — Avaliação da Aprendizagem</h4>
-          <p>${c.avaliacao}</p>
-        </div>
-
-        <div class="case-block">
-          <h4>10 — Resultados Esperados</h4>
-          <ul>${c.resultados.map(r => `<li>${r}</li>`).join('')}</ul>
-        </div>
+        <h3 class="case-title">${data.title}</h3>
+        <span class="case-tag">${data.badge}</span>
+        <div class="case-challenge">${data.desafio}</div>
+        ${techSheetHtml}
+        ${contextoHtml}
+        ${problemaHtml}
+        ${publicoHtml}
+        ${objetivosHtml}
+        ${estrategiaHtml}
       `;
 
-      document.getElementById('caseContent').innerHTML = html;
-      document.getElementById('modal').style.display = 'block';
+      document.getElementById("caseContent").innerHTML = html;
+      document.getElementById("modal").style.display = "block";
+      document.body.style.overflow = "hidden";
+      lucide.createIcons();
     }
 
     function closeCase() {
-      document.getElementById('modal').style.display = 'none';
+      document.getElementById("modal").style.display = "none";
+      document.body.style.overflow = "auto";
     }
 
-    window.onclick = function(e) {
-      if(e.target == document.getElementById('modal')) closeCase();
-    }
+    window.onclick = function(event) {
+      const modal = document.getElementById("modal");
+      if (event.target === modal) {
+        closeCase();
+      }
+    };
   </script>
 </body>
 </html>
+  
