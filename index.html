@@ -52,16 +52,17 @@
 
     /* Projects grid with images */
     .projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.25rem}
-    .project-card{background:var(--surface);border-radius:10px;border:1px solid var(--border);overflow:hidden;box-shadow:0 6px 20px rgba(15,23,36,0.06);display:flex;flex-direction:column}
+    .project-card{background:var(--surface);border-radius:10px;border:1px solid var(--border);overflow:hidden;box-shadow:0 6px 20px rgba(15,23,36,0.06);display:flex;flex-direction:column;min-height:330px}
     .project-card .img-wrap{height:140px;overflow:hidden}
     .project-card .img-wrap img{width:100%;height:100%;object-fit:cover;display:block}
     .project-card .content{padding:1rem 1.1rem;flex:1;display:flex;flex-direction:column}
     .project-card h3{margin-bottom:0.35rem;font-size:1.05rem}
     .project-card p{color:var(--muted);font-size:0.95rem;flex:1}
     .btn-group{display:flex;gap:0.6rem;margin-top:0.9rem}
-    .btn{padding:0.55rem 0.9rem;border-radius:8px;border:1px solid transparent;font-weight:700;cursor:pointer}
+    .btn{padding:0.55rem 0.9rem;border-radius:8px;border:1px solid transparent;font-weight:700;cursor:pointer;min-height:44px}
     .btn-primary{background:var(--primary);color:white;border-color:transparent}
     .btn-outline{background:transparent;border-color:var(--border);color:var(--muted)}
+    .btn:focus{outline:3px solid rgba(200,90,50,0.12);outline-offset:2px}
 
     /* Modal */
     .modal{display:none;position:fixed;inset:0;background:rgba(10,12,15,0.55);backdrop-filter:blur(4px);z-index:60;padding:2rem;overflow:auto}
@@ -78,6 +79,8 @@
     .case-table{width:100%;border-collapse:collapse}
     .case-table th,.case-table td{padding:0.55rem 0.7rem;border:1px solid var(--border);text-align:left}
     .case-table th{background:#f5f7fa;color:var(--muted);font-weight:700}
+    .storyboard{width:100%;border-collapse:collapse;margin-top:0.6rem}
+    .storyboard th,.storyboard td{border:1px solid var(--border);padding:0.5rem;font-size:0.9rem}
 
     /* Footer */
     footer{max-width:1100px;margin:1.6rem auto;padding:1rem;border-radius:10px;background:var(--surface);border:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;color:var(--muted)}
@@ -88,6 +91,7 @@
       .contact{align-items:flex-start}
       .case-hero{flex-direction:column}
       .case-hero img{width:100%;height:180px}
+      .project-card{min-height:auto}
     }
   </style>
 </head>
@@ -96,8 +100,8 @@
     <div class="nav">
       <div class="brand">
         <a class="logo" href="#">Larissa Silva</a>
-        <!-- small avatar in the header (replace with your photo) -->
-        <img src="https://canva.link/0ygcyfcthdjv4vr" alt="Larissa Silva">
+        <!-- avatar (Canva link provided) -->
+        <img src="https://canva.link/0ygcyfcthdjv4vr" alt="Foto Larissa Silva" loading="lazy">
       </div>
 
       <div style="display:flex;align-items:center;gap:1rem">
@@ -111,7 +115,6 @@
         </nav>
 
         <div class="contact">
-          <!-- Updated contact info -->
           <a href="mailto:larissarayane1919@gmail.com">larissarayane1919@gmail.com</a>
           <span>Cel: +55 (81) 98168-3256</span>
         </div>
@@ -122,16 +125,16 @@
   <main>
     <section id="apresentacao" class="hero">
       <div class="avatar">
-        <img src="https://canva.link/0ygcyfcthdjv4vr" alt="Larissa Silva">
+        <img src="https://canva.link/0ygcyfcthdjv4vr" alt="Larissa Silva — foto" loading="lazy">
       </div>
       <div>
         <div class="hero-tag" style="font-weight:700;color:var(--muted);font-size:0.9rem">Pedagoga | Design Instrucional | T&D | Educação Corporativa</div>
-        <h1>Desenvolvimento de Experiências de Aprendizagem Centrado em Resultados</h1>
-        <p>Alinho metodologias pedagógicas, necessidades de negócio e tecnologia educacional para criar treinamentos práticos e orientados a impacto — microlearning, simulações e trilhas blended.</p>
+        <h1>Transformo problemas de negócio em experiências de aprendizagem mensuráveis</h1>
+        <p>Desenvolvo soluções digitais (microlearning, simulações e trilhas blended) alinhadas às necessidades do negócio: diagnóstico, desenho instrucional, prototipagem e avaliação com métricas propostas.</p>
         <div class="meta" style="margin-top:12px">
-          <span class="pill">Storyboarding</span>
-          <span class="pill">Avaliação & Métricas</span>
-          <span class="pill">Microlearning</span>
+          <span class="pill">Análise de necessidades</span>
+          <span class="pill">Arquitetura instrucional</span>
+          <span class="pill">Avaliação e métricas</span>
         </div>
       </div>
     </section>
@@ -139,50 +142,69 @@
     <section id="processo">
       <h2 class="section-title">Meu Processo de Design Instrucional</h2>
       <div style="background:var(--surface);padding:1rem;border-radius:10px;border:1px solid var(--border);box-shadow:var(--shadow)">
-        <div style="display:flex;flex-wrap:wrap;gap:0.5rem;align-items:center">
-          <div class="pill">Diagnóstico</div>
-          <div class="pill">Público</div>
-          <div class="pill">Objetivos</div>
-          <div class="pill">Estratégia</div>
-          <div class="pill">Desenvolvimento</div>
-          <div class="pill">Avaliação</div>
+        <div style="display:flex;gap:0.6rem;flex-wrap:wrap;align-items:center">
+          <div class="pill">1. Diagnóstico</div>
+          <div class="pill">2. Análise do Público</div>
+          <div class="pill">3. Definição de Objetivos</div>
+          <div class="pill">4. Estratégia Instrucional</div>
+          <div class="pill">5. Arquitetura da Solução</div>
+          <div class="pill">6. Storyboard & Prototipagem</div>
+          <div class="pill">7. Desenvolvimento</div>
+          <div class="pill">8. Avaliação</div>
+          <div class="pill">9. Análise de Resultados</div>
         </div>
 
-        <div style="margin-top:1rem;display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:0.8rem">
-          <div style="background:var(--bg);padding:0.9rem;border-radius:8px;border:1px solid var(--border)">
-            <strong>Diagnóstico</strong>
-            <p style="color:var(--muted);font-size:0.95rem;margin-top:0.4rem">Análise de contexto e necessidades.</p>
-          </div>
-          <div style="background:var(--bg);padding:0.9rem;border-radius:8px;border:1px solid var(--border)">
-            <strong>Público</strong>
-            <p style="color:var(--muted);font-size:0.95rem;margin-top:0.4rem">Mapeamento de perfil e rotina.</p>
-          </div>
-          <div style="background:var(--bg);padding:0.9rem;border-radius:8px;border:1px solid var(--border)">
-            <strong>Objetivos</strong>
-            <p style="color:var(--muted);font-size:0.95rem;margin-top:0.4rem">Metas mensuráveis e observáveis.</p>
-          </div>
-          <div style="background:var(--bg);padding:0.9rem;border-radius:8px;border:1px solid var(--border)">
-            <strong>Prototipagem</strong>
-            <p style="color:var(--muted);font-size:0.95rem;margin-top:0.4rem">Wireframes e testes rápidos.</p>
-          </div>
+        <div style="margin-top:1rem;display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:0.8rem">
+          <div style="background:var(--bg);padding:0.9rem;border-radius:8px;border:1px solid var(--border)"><strong>Diagnóstico</strong><p style="color:var(--muted);font-size:0.9rem;margin-top:0.3rem">Coleta de evidências e stakeholders.</p></div>
+          <div style="background:var(--bg);padding:0.9rem;border-radius:8px;border:1px solid var(--border)"><strong>Análise do Público</strong><p style="color:var(--muted);font-size:0.9rem;margin-top:0.3rem">Perfil, recursos e limitações.</p></div>
+          <div style="background:var(--bg);padding:0.9rem;border-radius:8px;border:1px solid var(--border)"><strong>Objetivos</strong><p style="color:var(--muted);font-size:0.9rem;margin-top:0.3rem">Mensuráveis e observáveis.</p></div>
+          <div style="background:var(--bg);padding:0.9rem;border-radius:8px;border:1px solid var(--border)"><strong>Estratégia</strong><p style="color:var(--muted);font-size:0.9rem;margin-top:0.3rem">Escolha de métodos com justificativa.</p></div>
         </div>
       </div>
     </section>
 
     <section id="competencias">
-      <h2 class="section-title">Competências e Ferramentas</h2>
+      <h2 class="section-title">Competências</h2>
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem">
         <div style="background:var(--surface);padding:1rem;border-radius:10px;border:1px solid var(--border)">
           <h4 style="margin-bottom:0.6rem">Design Instrucional</h4>
-          <p style="color:var(--muted)">Análise de necessidades, objetivos de aprendizagem, roteirização, storyboarding, avaliação e microlearning.</p>
+          <ul style="color:var(--muted);padding-left:1rem">
+            <li>Análise de necessidades</li>
+            <li>Definição de objetivos de aprendizagem</li>
+            <li>Arquitetura instrucional</li>
+            <li>Storyboarding</li>
+            <li>Avaliação formativa e somativa</li>
+          </ul>
         </div>
+
         <div style="background:var(--surface);padding:1rem;border-radius:10px;border:1px solid var(--border)">
-          <h4 style="margin-bottom:0.6rem">T&D & Educação Corporativa</h4>
-          <p style="color:var(--muted)">Andragogia, aprendizagem baseada em cenários, trilhas blended.</p>
+          <h4 style="margin-bottom:0.6rem">Estratégias de Aprendizagem</h4>
+          <ul style="color:var(--muted);padding-left:1rem">
+            <li>Microlearning</li>
+            <li>Aprendizagem baseada em cenários</li>
+            <li>Simulações e branching scenarios</li>
+            <li>Gamificação</li>
+            <li>Aprendizagem ativa</li>
+          </ul>
         </div>
+
         <div style="background:var(--surface);padding:1rem;border-radius:10px;border:1px solid var(--border)">
-          <h4 style="margin-bottom:0.6rem">Tecnologia</h4>
-          <p style="color:var(--muted)">HTML, CSS, JavaScript, prototipagem (Canva, Figma), integração com LMS.</p>
+          <h4 style="margin-bottom:0.6rem">Tecnologia & Produção</h4>
+          <ul style="color:var(--muted);padding-left:1rem">
+            <li>Protótipos: Figma / Canva</li>
+            <li>Front-end: HTML, CSS, JavaScript (prototipagem)</li>
+            <li>Integração e LMS</li>
+            <li>Authoring e assets visuais</li>
+          </ul>
+        </div>
+
+        <div style="background:var(--surface);padding:1rem;border-radius:10px;border:1px solid var(--border)">
+          <h4 style="margin-bottom:0.6rem">Educação Corporativa</h4>
+          <ul style="color:var(--muted);padding-left:1rem">
+            <li>T&D e trilhas de desenvolvimento</li>
+            <li>Design orientado a resultados de negócio</li>
+            <li>Acompanhamento de indicadores de aprendizado</li>
+          </ul>
         </div>
       </div>
     </section>
@@ -192,49 +214,49 @@
 
       <div class="projects-grid">
         <div class="project-card">
-          <div class="img-wrap"><img src="https://source.unsplash.com/collection/190727/800x600?sig=1" alt="LGPD e Cibersegurança"></div>
+          <div class="img-wrap"><img src="https://source.unsplash.com/collection/190727/800x600?sig=1" alt="Ilustração LGPD e Cibersegurança" loading="lazy"></div>
           <div class="content">
             <h3>LGPD e Cibersegurança</h3>
-            <p>Microlearning para capacitar colaboradores a reconhecer riscos de vazamento de dados e phishing em rotinas administrativas.</p>
+            <p>Microlearning e simulações para reduzir riscos operacionais relacionados ao tratamento de dados.</p>
             <div class="btn-group">
-              <button class="btn btn-primary" onclick="showCase('lgpd')">Ver Estudo de Caso</button>
-              <a class="btn btn-outline" href="#">Ver Repositório</a>
+              <button class="btn btn-primary" onclick="showCase('lgpd')" aria-label="Ver estudo de caso LGPD">Ver estudo de caso →</button>
+              <a class="btn btn-outline" href="https://github.com/LarissaSilvah/Portf-lio-" target="_blank" rel="noopener noreferrer" aria-label="Ver repositório do case LGPD">Ver repositório →</a>
             </div>
           </div>
         </div>
 
         <div class="project-card">
-          <div class="img-wrap"><img src="https://source.unsplash.com/collection/897799/800x600?sig=2" alt="Atendimento B2B"></div>
+          <div class="img-wrap"><img src="https://source.unsplash.com/collection/897799/800x600?sig=2" alt="Ilustração Atendimento B2B" loading="lazy"></div>
           <div class="content">
             <h3>Atendimento B2B e Gestão de Contas</h3>
-            <p>Simulação interativa baseada em cenários para resolução de conflitos em contas corporativas e redução de churn.</p>
+            <p>Simulação ramificada para desenvolvimento de habilidades de negociação e desescalada em contas corporativas.</p>
             <div class="btn-group">
-              <button class="btn btn-primary" onclick="showCase('b2b')">Ver Estudo de Caso</button>
-              <a class="btn btn-outline" href="#">Ver Repositório</a>
+              <button class="btn btn-primary" onclick="showCase('b2b')" aria-label="Ver estudo de caso B2B">Ver estudo de caso →</button>
+              <a class="btn btn-outline" href="https://github.com/LarissaSilvah/Portf-lio-" target="_blank" rel="noopener noreferrer" aria-label="Ver repositório do case B2B">Ver repositório →</a>
             </div>
           </div>
         </div>
 
         <div class="project-card">
-          <div class="img-wrap"><img src="https://source.unsplash.com/collection/1111575/800x600?sig=3" alt="Feedback no trabalho remoto"></div>
+          <div class="img-wrap"><img src="https://source.unsplash.com/collection/1111575/800x600?sig=3" alt="Ilustração Feedback no trabalho remoto" loading="lazy"></div>
           <div class="content">
             <h3>Comunicação e Feedback no Trabalho Remoto</h3>
-            <p>Trilha prática para líderes usando o modelo SBI, com exercícios e simuladores de conversa.</p>
+            <p>Trilha com exercícios práticos para estruturação de feedbacks usando o modelo SBI.</p>
             <div class="btn-group">
-              <button class="btn btn-primary" onclick="showCase('feedback')">Ver Estudo de Caso</button>
-              <a class="btn btn-outline" href="#">Ver Repositório</a>
+              <button class="btn btn-primary" onclick="showCase('feedback')" aria-label="Ver estudo de caso Feedback">Ver estudo de caso →</button>
+              <a class="btn btn-outline" href="https://github.com/LarissaSilvah/Portf-lio-" target="_blank" rel="noopener noreferrer" aria-label="Ver repositório do case Feedback">Ver repositório →</a>
             </div>
           </div>
         </div>
 
         <div class="project-card">
-          <div class="img-wrap"><img src="https://source.unsplash.com/collection/190727/800x600?sig=4" alt="Treinamento de EPI"></div>
+          <div class="img-wrap"><img src="https://source.unsplash.com/collection/190727/800x600?sig=4" alt="Ilustração Treinamento de EPI" loading="lazy"></div>
           <div class="content">
             <h3>Treinamento de EPI</h3>
-            <p>Módulo gamificado de inspeção visual e uso correto de EPIs, com checklist interativo.</p>
+            <p>Módulo gamificado de inspeção visual e checklist prático para ambiente operacional.</p>
             <div class="btn-group">
-              <button class="btn btn-primary" onclick="showCase('epi')">Ver Estudo de Caso</button>
-              <a class="btn btn-outline" href="#">Ver Repositório</a>
+              <button class="btn btn-primary" onclick="showCase('epi')" aria-label="Ver estudo de caso EPI">Ver estudo de caso →</button>
+              <a class="btn btn-outline" href="https://github.com/LarissaSilvah/Portf-lio-" target="_blank" rel="noopener noreferrer" aria-label="Ver repositório do case EPI">Ver repositório →</a>
             </div>
           </div>
         </div>
@@ -244,7 +266,7 @@
 
   <div id="modal" class="modal" aria-hidden="true">
     <div class="modal-body">
-      <button class="close-btn" style="float:right;border:none;background:none;font-size:24px;cursor:pointer;color:var(--muted)" onclick="closeCase()">&times;</button>
+      <button class="close-btn" style="float:right;border:none;background:none;font-size:24px;cursor:pointer;color:var(--muted)" onclick="closeCase()" aria-label="Fechar estudo de caso">&times;</button>
       <div id="caseContent"></div>
     </div>
   </div>
@@ -267,112 +289,218 @@
       lgpd: {
         image: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1200&q=80',
         title: "LGPD e Cibersegurança no Cotidiano Corporativo",
-        badge: "Projeto conceitual — case fictício",
+        badge: "Projeto conceitual — estudo de caso",
         desafio: "Capacitar colaboradores administrativos a reconhecer e mitigar riscos de vazamento de dados e phishing na rotina de trabalho.",
-        techSheet: {
-          solucao: "Microlearning de Conscientização em Segurança da Informação",
-          tiposolucao: "Microlearning / Treinamento digital",
-          publico: "Colaboradores administrativos",
-          area: "Compliance / Segurança da Informação",
-          formato: "Web interativo responsive",
-          modalidade: "Autoinstrucional",
-          cargahoraria: "15 a 20 minutos",
-          ferramentas: "HTML5, CSS3, JavaScript ES6",
-          avaliacao: "Formativa integrada aos cenários"
-        },
-        problema: {
-          negocio: "Vulnerabilidade a incidentes de segurança da informação e não conformidade com LGPD.",
-          aprendizagem: "Dificuldade em aplicar conceitos teóricos no dia a dia.",
-          necessidade: "Habilidade prática para identificar phishing e reportar incidentes."
-        },
-        publico: {
-          perfil: "Profissionais administrativos",
-          responsabilidades: "Manuseio de e-mails e planilhas",
-          contexto: "Escritório e home office",
-          desafios: "Pouco tempo para treinamentos longos"
-        },
-        objetivos: [
-          "Identificar 4 indicadores de phishing",
-          "Classificar dados pessoais em cenários",
-          "Aplicar procedimento de reporte de incidentes"
+        contexto: "Organização fictícia com alto fluxo de e-mails e planilhas compartilhadas; equipes administrativas com pouco tempo disponível para treinamentos longos.",
+        problema_negocio: "Exposição a vazamento de dados e risco de sanções por não conformidade com a LGPD; perda de credibilidade e custo operacional com incidentes.",
+        problema_aprendizagem: "Conhecimento teórico sobre LGPD sem aplicação prática nas decisões operacionais (por exemplo, identificar phishing ou classificar dados sensíveis).",
+        publico: { perfil: "Assistentes e analistas administrativos", responsabilidades: "Envio/recebimento de e-mails, manipulação de planilhas", contexto: "Alta demanda e trabalho híbrido", desafios: "Baixa disponibilidade e atenção dividida" },
+        objetivo_geral: "Ao final, o participante será capaz de identificar sinais de phishing, classificar tipos de dados e aplicar o procedimento de reporte de incidentes.",
+        objetivos_especificos: [
+          "Identificar pelo menos 4 indicadores de e-mails de phishing em simulações (acerto mínimo proposto: 80%).",
+          "Classificar corretamente dados pessoais e sensíveis em 5 cenários práticos (acerto mínimo proposto: 85%).",
+          "Executar o procedimento de reporte simulado seguindo os 4 passos definidos em checklist."
         ],
-        estrategia: [
-          "Pílulas de conteúdo com simulações",
-          "Feedbacks imediatos em decisões",
-          "Cenários realistas com checagem prática"
-        ]
+        estrategia: {
+          descricao: "Microlearning + simulações interativas",
+          justificativa: "Microlearning garante pílulas acessíveis à rotina. Simulações aproximam o contexto real de trabalho e permitem feedback imediato para correção de comportamento."
+        },
+        arquitetura: [
+          "Módulo 1 — Conceitos essenciais (3 pílulas de 3 min)",
+          "Módulo 2 — Simulações de e-mails (3 cenários ramificados)",
+          "Módulo 3 — Procedimentos e checklist prático",
+          "Avaliação formativa e feedback personalizado"
+        ],
+        atividades: ["Simulações de e-mail (seleção de indícios)", "Checklist operacional (marcar ações)", "Quiz situacional"],
+        avaliacao: [
+          { objetivo: "Identificar phishing", atividade: "Simulações 5 cenários", avaliacao: "Percentual de acerto (≥80%)" },
+          { objetivo: "Classificar dados", atividade: "Exercício de classificação", avaliacao: "Percentual de acerto (≥85%)" }
+        ],
+        indicadores: ["Taxa de conclusão", "% de acerto nas simulações", "Tempo médio por módulo", "Aplicação prática (proposta de observação)"],
+        evidencias: [
+          {src: 'https://source.unsplash.com/collection/190727/1200x800?sig=11', alt:'Tela de simulação de e-mail', caption:'Simulação de e-mail — identificação de indícios'},
+          {src: 'https://source.unsplash.com/collection/190727/1200x800?sig=12', alt:'Exemplo de checklist', caption:'Checklist operacional para reporte de incidentes'},
+          {src: 'https://source.unsplash.com/collection/190727/1200x800?sig=13', alt:'Tela de feedback', caption:'Feedback imediato pós-resposta'}
+        ],
+        storyboard: [
+          {tela:'Boas-vindas (pílula)', objetivo:'Contextualizar risco', conteudo:'Definição rápida e objetivo do módulo', interacao:'Avançar', feedback:'Nenhum'},
+          {tela:'Simulação de e-mail', objetivo:'Identificar indícios', conteudo:'E-mail falso com pistas', interacao:'Selecionar trechos suspeitos', feedback:'Explicação imediata para cada escolha'},
+          {tela:'Checklist prático', objetivo:'Aplicar procedimento', conteudo:'Passo a passo do reporte', interacao:'Marcar ações realizadas', feedback:'Resumo e próximos passos'},
+          {tela:'Avaliação final', objetivo:'Medir transferência', conteudo:'6 questões situacionais', interacao:'Quiz', feedback:'Pontuação e recomendações'}
+        ],
+        repoUrl: 'https://github.com/LarissaSilvah/Portf-lio-'
       },
+
       b2b: {
         image: 'https://images.unsplash.com/photo-1556761175-129418cb2dfe?auto=format&fit=crop&w=1200&q=80',
         title: "Atendimento B2B e Gestão de Contas Corporativas",
-        badge: "Projeto conceitual — case fictício",
-        desafio: "Reduzir churn e resolver conflitos em contas B2B por meio de comunicação e negociação estruturada.",
-        techSheet: {/* ... */},
-        problema: { negocio: "Perda de ARR por cancelamentos prematuros.", aprendizagem: "Postura reativa da equipe.", necessidade: "Capacitar em técnicas de desescalada." },
-        publico: { perfil: "Analistas e Gerentes de Contas", responsibilities: "Gestão do relacionamento", context: "Reuniões frequentes", challenges: "Gerenciar clientes exigentes" },
-        objetivos: ["Mapear causa raiz da insatisfação","Aplicar protocolo de 4 etapas para desescalada","Construir propostas de renegociação"],
-        estrategia: ["Branching scenarios","Indicador visual de satisfação","Análise pós-simulação"]
+        badge: "Projeto conceitual — estudo de caso",
+        desafio: "Reduzir churn e melhorar a gestão de contas críticas por meio de comunicação estruturada e negociação integrada.",
+        contexto: "Empresa SaaS fictícia com times de CS responsáveis por contas de alto valor, processos de renovação e espaço reduzido para treinamentos presenciais.",
+        problema_negocio: "Cancelamentos prematuros (ARR afetado) devido à má gestão de conflito e desalinhamento de expectativas.",
+        problema_aprendizagem: "Habilidades de desescalada e negociação não aplicadas em situações críticas; decisões reativas em vez de proativas.",
+        publico: { perfil: "Analistas e Gerentes de Conta B2B", responsabilidades: "Gerir relacionamento, alinhar entregáveis", contexto: "Reuniões frequentes e pressão de metas", desafios: "Tomada de decisão sob pressão" },
+        objetivo_geral: "Ao final, o participante será capaz de aplicar protocolos de desescalada e construir propostas de renegociação balanceadas.",
+        objetivos_especificos: [
+          "Mapear causa raiz da insatisfação utilizando técnica de perguntas (3 passos)",
+          "Aplicar protocolo de 4 passos para desescalada em simulações (acerto mínimo proposto: 80%)",
+          "Construir proposta de renegociação que preserve margem e satisfação (avaliado por checklist)"
+        ],
+        estrategia: { descricao: 'Branching scenarios (simulações ramificadas)', justificativa: 'Permite praticar decisões com consequências e visualizar impacto nas métricas da conta.' },
+        arquitetura: ["Módulo 1 — Diagnóstico da Conta","Módulo 2 — Simulações ramificadas","Módulo 3 — Ferramentas e templates","Avaliação prática"],
+        atividades: ["Simulação ramificada","Role-play digital","Template de proposta"],
+        avaliacao: [ { objetivo: 'Desescalada', atividade: 'Simulação 3 cenários', avaliacao: 'Checklist de comportamento (≥80%)' } ],
+        indicadores: ["Taxa de retenção simulada","Melhoria no NPS simulado","Qualidade das propostas (checklist)"],
+        evidencias: [ {src:'https://source.unsplash.com/collection/897799/1200x800?sig=21', alt:'Tela de simulação B2B', caption:'Branching scenario — reunião crítica'}, {src:'https://source.unsplash.com/collection/897799/1200x800?sig=22', alt:'Template de proposta', caption:'Template de renegociação'} ],
+        storyboard: [ {tela:'Introdução ao protocolo', objetivo:'Apresentar 4 passos', conteudo:'Resumo visual', interacao:'Explorar passos', feedback:'Dicas'}, {tela:'Simulação 1', objetivo:'Praticar desescalada', conteudo:'Cliente insatisfeito', interacao:'Escolhas ramificadas', feedback:'Impacto e justificativa'}, {tela:'Construção de proposta', objetivo:'Aplicar negociação', conteudo:'Editor de proposta', interacao:'Editar e enviar', feedback:'Checklist de avaliação'}, {tela:'Debrief', objetivo:'Aprender com resultado', conteudo:'Resumo de consequências', interacao:'Reflexão', feedback:'Recomendações'} ],
+        repoUrl: 'https://github.com/LarissaSilvah/Portf-lio-'
       },
+
       feedback: {
         image: 'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=1200&q=80',
         title: "Comunicação e Feedback no Trabalho Remoto",
-        badge: "Projeto conceitual — case fictício",
-        desafio: "Apoiar líderes na estruturação de feedbacks construtivos usando o modelo SBI.",
-        techSheet: {/* ... */},
-        problema: { negocio: "Aumento da rotatividade por falhas de comunicação.", aprendizagem: "Dificuldade em separar fatos de julgamentos.", necessidade: "Processo de feedback claro e empático." },
-        publico: { perfil: "Líderes e gestores", responsibilities: "Gestão de metas", context: "Comunicação assíncrona" },
-        objetivos: ["Diferenciar fatos de inferências","Estruturar mensagens pelo modelo SBI","Elaborar planos de ação"],
-        estrategia: ["Exercícios drag-and-drop","Comparativos reais","Simulador de conversa"]
+        badge: "Projeto conceitual — estudo de caso",
+        desafio: "Apoiar líderes na estruturação de feedbacks construtivos e mensuráveis para equipes remotas.",
+        contexto: "Organizações com modelos híbridos e comunicação predominantemente assíncrona; líderes com pouco tempo para preparar 1:1s.",
+        problema_negocio: "Queda no engajamento e aumento de rotatividade por feedbacks mal estruturados.",
+        problema_aprendizagem: "Dificuldade em separar observações objetivas de julgamentos e em usar modelo estruturado (SBI) na prática.",
+        publico: { perfil: 'Líderes e coordenadores', responsabilidades: '1:1s, avaliações de desempenho', contexto: 'Rotina acelerada', desafios: 'Preparação e empatia em conversas difíceis' },
+        objetivo_geral: 'Ao final, o participante será capaz de estruturar feedbacks pelo modelo SBI e propor planos de ação colaborativos.',
+        objetivos_especificos: [ 'Diferenciar fatos de inferências em exemplos práticos', 'Construir feedback alinhado ao modelo SBI em exercícios (≥80% coerência)', 'Elaborar plano de ação ao final do feedback' ],
+        estrategia: { descricao: 'Exercícios práticos + exemplos comparativos + simulador', justificativa: 'Combina teoria com prática deliberada e feedback para transferência do comportamento.' },
+        arquitetura: ['Módulo 1 — Fundamentação (SBI)','Módulo 2 — Exercícios guiados','Módulo 3 — Simulador de conversa','Avaliação por pares'],
+        atividades: ['Exercícios de categorização','Simulador de conversa','Construção de script para 1:1'],
+        avaliacao: [ { objetivo: 'Estruturar feedback', atividade: 'Exercício de script', avaliacao: 'Checklist de coerência (≥80%)' } ],
+        indicadores: ['% de scripts aprovados por pares', 'Autoavaliação de confiança', 'Feedback qualitativo dos participantes'],
+        evidencias: [ {src:'https://source.unsplash.com/collection/1111575/1200x800?sig=31', alt:'Tela de exercício SBI', caption:'Exercício de categorização (Situação, Comportamento, Impacto)'}, {src:'https://source.unsplash.com/collection/1111575/1200x800?sig=32', alt:'Simulador de conversa', caption:'Simulador de feedback com árvore de decisão'} ],
+        storyboard: [ {tela:'Boas-vindas e objetivo', objetivo:'Apresentar modelo', conteudo:'Exemplo curto', interacao:'Ler e avançar', feedback:'Resumo'}, {tela:'Exercício SBI', objetivo:'Diferenciar frases', conteudo:'Trechos de conversa', interacao:'Classificar', feedback:'Explicação por item'}, {tela:'Simulador', objetivo:'Praticar 1:1', conteudo:'Cenário com ramificações', interacao:'Escolhas e réplicas', feedback:'Relatório de pontos fortes e de melhoria'}, {tela:'Plano de ação', objetivo:'Consolidar', conteudo:'Template editável', interacao:'Preencher', feedback:'Compartilhar com par'} ],
+        repoUrl: 'https://github.com/LarissaSilvah/Portf-lio-'
       },
+
       epi: {
         image: 'https://images.unsplash.com/photo-1532634726-8b9fb99825b0?auto=format&fit=crop&w=1200&q=80',
         title: "Inspeção e Uso Correto de EPIs",
-        badge: "Projeto conceitual — case fictício",
-        desafio: "Garantir inspeção prévia e uso correto de EPIs para redução de acidentes.",
-        techSheet: {/* ... */},
-        problema: { negocio: "Ocorrência de acidentes evitáveis.", aprendizagem: "Falta de hábito na checagem prévia.", necessidade: "Fixar procedimento visual rápido." },
-        publico: { perfil: "Operadores e técnicos", responsibilities: "Execução prática", context: "Chão de fábrica" },
-        objetivos: ["Identificar 3 avarias críticas","Demonstrar sequência correta de paramentação","Registrar necessidade de substituição"],
-        estrategia: ["Hotspot e gamificação","Pontuação por precisão","Checklist interativo"]
+        badge: "Projeto conceitual — estudo de caso",
+        desafio: "Promover o hábito de inspeção visual e uso correto de EPIs para reduzir incidentes em ambiente operacional.",
+        contexto: "Ambiente operacional simulado com operadores que realizam tarefas repetitivas e têm resistência a treinamentos longos.",
+        problema_negocio: "Ocorrência de incidentes evitáveis e riscos de paralisação operacional por uso incorreto de EPIs.",
+        problema_aprendizagem: "Falta de rotina e atenção à inspeção prévia de EPIs; dificuldade em identificar avarias críticas.",
+        publico: { perfil: 'Operadores de produção e técnicos de campo', responsabilidades: 'Operação de máquinas e manutenção', contexto: 'Turnos diários', desafios: 'Resistência a treinamentos longos' },
+        objetivo_geral: 'Ao final, o participante será capaz de identificar avarias críticas e executar checklist de paramentação corretamente.',
+        objetivos_especificos: [ 'Identificar ao menos 3 avarias críticas em imagens (acerto ≥80%)', 'Demonstrar sequência correta de paramentação em checklist prático', 'Registrar necessidade de substituição conforme protocolo' ],
+        estrategia: { descricao: 'Gamificação + hotspot (encontre o defeito)', justificativa: 'Gera engajamento e reforço rápido de comportamento com feedback imediato e pontuação.' },
+        arquitetura: ['Introdução rápida','Atividade hotspot (imagens)','Checklist interativo','Desafio final gamificado'],
+        atividades: ['Hotspot em imagens','Checklist de paramentação','Desafio com pontuação'],
+        avaliacao: [ { objetivo: 'Identificar avarias', atividade: 'Hotspot 6 imagens', avaliacao: 'Pontuação mínima (≥80%)' } ],
+        indicadores: ['% de acerto no hotspot','Tempo médio de inspeção','Taxa de conclusão do desafio'],
+        evidencias: [ {src:'https://source.unsplash.com/collection/190727/1200x800?sig=41', alt:'Exemplo hotspot EPI', caption:'Hotspot — identificar avarias em capacete'}, {src:'https://source.unsplash.com/collection/190727/1200x800?sig=42', alt:'Checklist EPI', caption:'Checklist de paramentação passo a passo'} ],
+        storyboard: [ {tela:'Intro rápida', objetivo:'Contextualizar importância', conteudo:'3 bullets rápidos', interacao:'Avançar', feedback:'Nenhum'}, {tela:'Hotspot 1', objetivo:'Identificar avaria', conteudo:'Imagem com pontos clicáveis', interacao:'Clicar em hotspots', feedback:'Correção imediata'}, {tela:'Checklist', objetivo:'Sequência de paramentação', conteudo:'Passos em ordem', interacao:'Arrastar/ordenar', feedback:'Confirmação e instrução'}, {tela:'Desafio final', objetivo:'Consolidar', conteudo:'3 situações', interacao:'Simulação', feedback:'Pontuação e ranking'} ],
+        repoUrl: 'https://github.com/LarissaSilvah/Portf-lio-'
       }
     };
+
+    function buildFichaTech(obj){
+      if(!obj.techSheet) return '';
+      return `\n        <div class="case-block">\n          <h4>Ficha Técnica</h4>\n          <table class="case-table">\n            <tr><th>Solução</th><td>${obj.techSheet.solucao || ''}</td></tr>\n            <tr><th>Tipo</th><td>${obj.techSheet.tiposolucao || ''}</td></tr>\n            <tr><th>Público</th><td>${obj.techSheet.publico || ''}</td></tr>\n            <tr><th>Formato</th><td>${obj.techSheet.formato || ''}</td></tr>\n            <tr><th>Carga</th><td>${obj.techSheet.cargahoraria || ''}</td></tr>\n          </table>\n        </div>\n      `;
+    }
 
     function showCase(key){
       const data = cases[key];
       if(!data) return;
 
-      const tech = data.techSheet && Object.keys(data.techSheet).length ? Object.entries(data.techSheet).map(([k,v])=>`<div style="margin-bottom:6px"><strong>${k.charAt(0).toUpperCase()+k.slice(1)}:</strong> ${v}</div>`).join('') : '';
+      // ficha técnica (opcional)
+      const ficha = buildFichaTech(data);
 
-      const objetivos = data.objetivos ? `<ul>${data.objetivos.map(o=>`<li>${o}</li>`).join('')}</ul>` : '';
-      const estrategia = data.estrategia ? `<ul>${data.estrategia.map(e=>`<li>${e}</li>`).join('')}</ul>` : '';
+      // objetivos
+      const objetivosHtml = data.objetivos_especificos ? `<ul>${data.objetivos_especificos.map(o=>`<li>${o}</li>`).join('')}</ul>` : '';
+      // atividades
+      const atividadesHtml = data.atividades ? `<ul>${data.atividades.map(a=>`<li>${a}</li>`).join('')}</ul>` : '';
+      // avaliacao mapping
+      const avaliacaoHtml = data.avaliacao ? `<ul>${data.avaliacao.map(a=>`<li><strong>Objetivo:</strong> ${a.objetivo} — <strong>Avaliação:</strong> ${a.avaliacao}</li>`).join('')}</ul>` : '';
+      // evidencias
+      const evidenciasHtml = data.evidencias ? `<div style="display:flex;gap:0.6rem;flex-wrap:wrap;margin-top:0.6rem">${data.evidencias.map(e=>`<figure style="width:32%;min-width:200px;margin:0"><img src="${e.src}" alt="${e.alt}" loading="lazy" style="width:100%;height:120px;object-fit:cover;border-radius:6px;border:1px solid var(--border)"><figcaption style="font-size:0.85rem;color:var(--muted);margin-top:6px">${e.caption}</figcaption></figure>`).join('')}</div>` : '';
+
+      // storyboard table
+      const storyboardHtml = data.storyboard ? `\n        <div class="case-block">\n          <h4>Storyboard (amostra)</h4>\n          <table class="storyboard">\n            <thead><tr><th>Tela</th><th>Objetivo</th><th>Conteúdo</th><th>Interação</th><th>Feedback</th></tr></thead>\n            <tbody>\n              ${data.storyboard.map(s=>`<tr><td>${s.tela}</td><td>${s.objetivo}</td><td>${s.conteudo}</td><td>${s.interacao}</td><td>${s.feedback}</td></tr>`).join('')}\n            </tbody>\n          </table>\n        </div>\n      ` : '';
 
       const html = `
         <div class="case-hero">
-          <img src="${data.image}" alt="${data.title}">
+          <img src="${data.image}" alt="${data.title}" loading="lazy">
           <div>
             <div class="case-title">${data.title}</div>
             <div class="case-tag">${data.badge}</div>
             <div style="color:var(--muted);margin-top:8px">${data.desafio}</div>
           </div>
         </div>
-        <div class="case-challenge">${data.desafio}</div>
-        <div style="display:flex;gap:1rem;margin-top:1rem;flex-wrap:wrap">
-          <div style="flex:1;min-width:260px">
-            <h4>Ficha Técnica</h4>
-            ${tech}
-          </div>
-          <div style="flex:1;min-width:260px">
-            <h4>Diagnóstico</h4>
-            <p style="color:var(--muted)">${data.problema && data.problema.negocio ? data.problema.negocio : ''}</p>
-          </div>
+
+        <div class="case-challenge">Contexto: ${data.contexto}</div>
+
+        ${ficha}
+
+        <div class="case-block">
+          <h4>Problema de Negócio</h4>
+          <p style="color:var(--muted)">${data.problema_negocio}</p>
         </div>
-        <div style="margin-top:1rem">
-          <h4>Objetivos de Aprendizagem</h4>
-          ${objetivos}
+
+        <div class="case-block">
+          <h4>Necessidade de Aprendizagem</h4>
+          <p style="color:var(--muted)">${data.problema_aprendizagem}</p>
         </div>
-        <div style="margin-top:0.6rem">
+
+        <div class="case-block">
+          <h4>Público-alvo</h4>
+          <table class="case-table">
+            <tr><th>Perfil</th><td>${data.publico.perfil}</td></tr>
+            <tr><th>Responsabilidades</th><td>${data.publico.responsabilidades || data.publico.responsibilities || ''}</td></tr>
+            <tr><th>Contexto</th><td>${data.publico.contexto || data.publico.context}</td></tr>
+            <tr><th>Desafios</th><td>${data.publico.desafios || data.publico.challenges || data.publico.desafios || ''}</td></tr>
+          </table>
+        </div>
+
+        <div class="case-block">
+          <h4>Objetivo Geral</h4>
+          <p style="color:var(--muted)">${data.objetivo_geral}</p>
+        </div>
+
+        <div class="case-block">
+          <h4>Objetivos Específicos</h4>
+          ${objetivosHtml}
+        </div>
+
+        <div class="case-block">
           <h4>Estratégia Instrucional</h4>
-          ${estrategia}
+          <p style="color:var(--muted)"><strong>Abordagem:</strong> ${data.estrategia.descricao}</p>
+          <p style="color:var(--muted)"><strong>Justificativa:</strong> ${data.estrategia.justificativa}</p>
+        </div>
+
+        <div class="case-block">
+          <h4>Arquitetura da Solução</h4>
+          <ul>${data.arquitetura.map(m=>`<li>${m}</li>`).join('')}</ul>
+        </div>
+
+        <div class="case-block">
+          <h4>Atividades</h4>
+          ${atividadesHtml}
+        </div>
+
+        <div class="case-block">
+          <h4>Avaliação</h4>
+          ${avaliacaoHtml}
+        </div>
+
+        <div class="case-block">
+          <h4>Indicadores propostos</h4>
+          <ul>${data.indicadores.map(i=>`<li>${i}</li>`).join('')}</ul>
+          <p style="color:var(--muted);font-size:0.9rem;margin-top:6px">Observação: indicadores propostos para validação em contexto real — projeto conceitual.</p>
+        </div>
+
+        ${evidenciasHtml}
+
+        ${storyboardHtml}
+
+        <div style="margin-top:1rem;display:flex;gap:0.6rem;flex-wrap:wrap">
+          <a class="btn btn-primary" href="${data.repoUrl}" target="_blank" rel="noopener noreferrer" aria-label="Explorar solução interativa" role="button">Explorar solução interativa →</a>
+          <a class="btn btn-outline" href="${data.repoUrl}" target="_blank" rel="noopener noreferrer" aria-label="Ver repositório do case" role="button">Ver repositório →</a>
         </div>
       `;
 
